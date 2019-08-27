@@ -1,0 +1,200 @@
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 100%;
+    min-height: calc(100% - 50px);
+    padding-top: 25px;
+}
+
+#avatar {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    border-radius: 50%;
+    width: 185px;
+    margin-bottom: 20px;
+}
+
+#name-div {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    position: relative;
+    text-align: center;
+}
+
+#zh-name, #en-name{
+    font-weight: 500;
+    font-size: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#zh-name {
+    letter-spacing: 0.10em;
+}
+
+#motto {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    text-align: center;
+    word-spacing: 0ex;
+    font-size: 20px;
+    font-weight: 300;
+    padding-top: 10px;
+}
+
+#aboutme-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    font-size: 19px;
+    width: 130px;
+    padding: 8px 0;
+    text-align: center;
+    color: rgb(130,130,130);
+    border: 2px solid rgb(130,130,130);
+    border-radius: 50px;
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    word-spacing: 50%;
+}
+
+#btn-div {
+    width: 100%;
+}
+
+#blog-btn {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+    font-size: 19px;
+    width: 130px;
+    padding: 8px 0;
+    text-align: center;
+    color: rgb(130,130,130);
+    border: 2px solid rgb(130,130,130);
+    border-radius: 50px;
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    word-spacing: 50%;
+}
+
+@supports (display: flex){
+    #avatar {
+        display: unset;
+        margin-left: unset;
+        margin-right: unset;
+    }
+    #name-div {
+        display: unset;
+        margin-left: unset;
+        margin-right: unset;
+    }
+    #motto {
+        display: unset;
+        margin-left: unset;
+        margin-right: unset;
+    }
+    #aboutme-btn {
+        display: unset;
+        margin-left: unset;
+        margin-right: unset;
+    }
+    #blog-btn {
+        display: unset;
+        margin-left: unset;
+        margin-right: unset;
+    }
+    #btn-div {
+        display: flex;
+        justify-content: space-between;
+        margin-left: unset;
+        margin-right: unset;
+        max-width: 270px;
+    }
+}
+
+#aboutme-btn:hover,#aboutme-btn:active {
+    background-color: rgb(130,130,130);
+    color: white;
+    
+}
+
+#aboutme-btn:active {
+    transform: scale(0.9);
+    background-color: rgb(130,130,130);
+    color: white;
+}
+
+#blog-btn:hover,#blog-btn:active {
+    background-color: rgb(130,130,130);
+    color: white;
+}
+
+#blog-btn:active {
+    transform: scale(0.9);
+    background-color: rgb(130,130,130);
+    color: white;
+}
+
+#footer {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 17px;
+    opacity: 0.5;
+}
+
+#github-link{
+    outline: none;
+}
+
+.no-break {
+    display: inline-block;
+}
+
+.fadeout {
+    transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    opacity: 0;
+    display: none;
+}
+
+main.fadein {
+    transition: all 1.0s ease;
+    -moz-transition: all 1.0s ease;
+    -o-transition: all 1.0s ease;
+    -webkit-transition: all 1.0s ease;
+    opacity: 1;
+}

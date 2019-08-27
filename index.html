@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-127507120-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-127507120-1');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>澪人桐&nbsp;&nbsp;MiohitoKiri5474</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <style>
+        body, html{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Ubuntu", "Helvetica", "微軟雅黑", "Microsoft YaHei", "Segoe UI Semibold", "Segoe UI", 
+            "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+            background: rgb(242,242,242);
+        }
+        main.loading {
+            opacity: 0;
+        }
+        #loading-block {
+            position: fixed;
+            left: 0px; 
+            right: 0px; 
+            top: 0px; 
+            bottom: 0px;
+            background: rgb(242,242,242);
+            z-index: 99;
+            font-size: 30px;
+            display: block;
+        }
+    </style>
+    <noscript>
+        <style>
+            #loading-block {
+                display: None !important;
+            }
+        </style>
+    </noscript>
+</head>
+<body>
+    <div id="loading-block"></div>
+    <main>
+        <img src="avatar.jpg" id="avatar" alt="Avatar" class="">
+        <div id="name-div" class="">
+            <span class="no-break" id="zh-name">澪人桐</span><span class="no-break" id="en-name">MiohitoKiri5474</span>
+        </div>
+        <span id="motto" class="">I'm a trash.</span>
+        <div id="btn-div">
+            <a href="https://miohitokiri5474.github.io/code" id="coder-btn">Coder MiohitoKiri</a>
+            <a href="https://miohitokiri5474.github.io/game" id="game-btn">Gamer MiohitoKiri</a>
+            <a href="https://miohitokiri5474.github.io/r" id = "url-btn">Url Shortener</a>
+        </div>
+    </main>
+
+    <div id="footer">
+        MiohitoKiri5474&nbsp;&nbsp;<a href="https://github.com/miohitokiri5474/" target="_blank" id="github-link"><img height="16" width="16" src="github.svg" /></a>&nbsp;&nbsp;2017-2019
+    </div> 
+    <script>
+        "use strict";
+        document.getElementsByTagName("main")[0].classList.add("loading");
+        window.onload = function(){
+            let blk = document.getElementById("loading-block");
+            blk.classList.add("fadeout");
+            var clear_block = function(event){
+                event.target.style.display="none";
+                document.getElementsByTagName("main")[0].classList.remove("loading");
+                document.getElementsByTagName("main")[0].classList.add("fadein");
+            };
+            blk.addEventListener("transitionend", clear_block,false);
+            blk.addEventListener("webkitTransitionEnd", clear_block,false);
+            blk.addEventListener("oTransitionEnd", clear_block,false);
+            blk.addEventListener("MSTransitionEnd", clear_block,false);
+        };
+    </script>
+    <link rel="stylesheet" href="style.css">
+</body>
+</html>
