@@ -46,6 +46,11 @@ main {
 
 #zh-name {
     letter-spacing: 0.10em;
+    color: #fff;
+}
+
+#en-name{
+    color: #fff8;
 }
 
 #motto {
