@@ -12,7 +12,7 @@ main {
     align-items: center;
     flex-direction: column;
     min-width: 100%;
-    min-height: 100%
+    min-height: 100%;
     padding-top: 25px;
     background: url(/background.jpg) center center;
     background-size: cover;
