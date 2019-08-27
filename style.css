@@ -58,7 +58,10 @@ main {
     padding-top: 10px;
 }
 
-#btn-div {
+#btn-div1 {
+    width: 100%;
+}
+#btn-div2 {
     width: 100%;
 }
 
