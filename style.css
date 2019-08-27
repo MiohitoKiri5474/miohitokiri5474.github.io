@@ -138,6 +138,16 @@ main {
     display: inline-block;
 }
 
+#footer {
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    font-size: 17px;
+    opacity: 0.5;
+}
+
 .fadeout {
     transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
