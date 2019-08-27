@@ -14,7 +14,7 @@ main {
     min-width: 100%;
     min-height: calc(100% - 50px);
     padding-top: 25px;
-    background: url(/background.jpg);
+    background: url(/background.jpg) center center fixed no-repeat;
 }
 
 #avatar {
