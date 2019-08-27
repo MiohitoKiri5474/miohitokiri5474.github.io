@@ -58,7 +58,15 @@ main {
     padding-top: 10px;
 }
 
-#aboutme-btn {
+#btn-div1 {
+    width: 100%;
+}
+
+#btn-div2 {
+    width:  100%;
+}
+
+#blog-btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -80,18 +88,14 @@ main {
     word-spacing: 50%;
 }
 
-#btn-div {
-    width: 100%;
-}
-
 #blog-btn {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 35px;
     font-size: 19px;
-    width: 150px;
-    padding: 16px 0;
+    width: 200px;
+    padding: 8px 0;
     text-align: center;
     color: rgb(130,130,130);
     border: 2px solid rgb(130,130,130);
