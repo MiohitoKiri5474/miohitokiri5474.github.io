@@ -7,13 +7,13 @@
 }
 
 main {
-/*     display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     min-width: 100%;
     min-height: calc(100% - 50px);
-    padding-top: 25px; */
+    padding-top: 25px;
     background: url(/background.jpg) center center fixed no-repeat;
 }
 
