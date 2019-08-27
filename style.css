@@ -72,8 +72,8 @@ main {
     width: 125px;
     padding: 8px 0;
     text-align: center;
-    color: rgb(130,130,130);
-    border: 2px solid rgb(130,130,130);
+    color: #fff;
+    border: 2px solid #fff;
     border-radius: 50px;
     text-decoration: none;
     outline: none;
@@ -116,14 +116,14 @@ main {
 }
 
 #blog-btn:hover,#blog-btn:active {
-    background-color: rgb(130,130,130);
-    color: white;
+    background-color: #fff;
+    color: rgb(130,130,130);
 }
 
 #blog-btn:active {
     transform: scale(0.9);
-    background-color: rgb(130,130,130);
-    color: white;
+    background-color: #fff;
+    color: rgb(130,130,130);
 }
 
 #footer {
