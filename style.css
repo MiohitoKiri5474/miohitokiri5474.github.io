@@ -68,7 +68,7 @@ main {
     margin-right: auto;
     margin-top: 35px;
     font-size: 19px;
-    width: 130px;
+    width: 125px;
     padding: 8px 0;
     text-align: center;
     color: rgb(130,130,130);
@@ -100,11 +100,6 @@ main {
         margin-left: unset;
         margin-right: unset;
     }
-    #aboutme-btn {
-        display: unset;
-        margin-left: unset;
-        margin-right: unset;
-    }
     #blog-btn {
         display: unset;
         margin-left: unset;
@@ -117,18 +112,6 @@ main {
         margin-right: unset;
         max-width: 270px;
     }
-}
-
-#aboutme-btn:hover,#aboutme-btn:active {
-    background-color: rgb(130,130,130);
-    color: white;
-    
-}
-
-#aboutme-btn:active {
-    transform: scale(0.9);
-    background-color: rgb(130,130,130);
-    color: white;
 }
 
 #blog-btn:hover,#blog-btn:active {
