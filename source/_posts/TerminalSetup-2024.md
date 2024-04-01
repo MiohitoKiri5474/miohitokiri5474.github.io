@@ -13,7 +13,7 @@ categories:
 ## Before We Start
 
 明明前一篇就講過怎麼做 neoVim 的 set up 了，為什麼現在又寫一篇呢？
-確實，[在上一篇](/code/terminalSetUp/)中我已經做了算詳細的介紹了，不過就在我放寒假後多蓋了幾個套件的 config，整個 vim 又跟之前完全不一樣了
+確實，[在上一篇](/terminalSetUp/)中我已經做了算詳細的介紹了，不過就在我放寒假後多蓋了幾個套件的 config，整個 vim 又跟之前完全不一樣了
 
 ⋯⋯本來應該是這樣的，就因為我在 yt 上看了太多 NeoVim 相關的影片，yt 在上週末推了這部 devaslife 的影片給我
 

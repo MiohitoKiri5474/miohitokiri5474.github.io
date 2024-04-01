@@ -19,7 +19,7 @@ banner:
 
 # Appearance
 hue:
-  250 # The hue of the theme color (e.g. red: 0, orange: 60, blue: 260, purple: 300, pink: 345)
+  60 # The hue of the theme color (e.g. red: 0, orange: 60, blue: 260, purple: 300, pink: 345)
   # Visit `saicaca.github.io/vivia-preview` to preview the theme color
 
 # Personal info
