@@ -1,0 +1,38 @@
+name: Auto Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set Time Zone
+        run: sudo timedatectl set-timezone 'Asia/Taipei'
+
+      - name: Configuration environment
+        env:
+          HEXO_DEPLOY_PRI: ${{secrets.BLOG_SEC}}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_PRI" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name "MiohitoKiri5474"
+          git config --global user.email "lltzpp@gmail.com"
+
+      - name: Node.js Package install
+        run: npm i -g hexo-cli && npm i
+
+      - name: Deploy
+        run: |
+          rm -rf node_modules && npm install --force
+          hexo clean && hexo g && hexo d
