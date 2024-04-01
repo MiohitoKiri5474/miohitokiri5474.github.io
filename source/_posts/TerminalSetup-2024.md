@@ -17,7 +17,7 @@ categories:
 
 ⋯⋯本來應該是這樣的，就因為我在 yt 上看了太多 NeoVim 相關的影片，yt 在上週末推了這部 devaslife 的影片給我
 
-youtube fFHlfbKVi30
+<iframe width="560" height="315" src="https://www.youtube.com/embed/fFHlfbKVi30?si=kGj6ExYNiqS6FX_N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 本來只是抱持著稍微看一下的心情點開，然後我就不小心把整個 config 又重新蓋了一遍⋯⋯
 

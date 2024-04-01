@@ -68,4 +68,7 @@ deploy:
 archive_generator:
   per_page: 0
 
-all_minifier: False
+all_minifier: True
+
+sitemap:
+  path: sitemap.xml

@@ -18,7 +18,8 @@ categories:
 發現了這款遊戲：《My Friend Pedro（我的朋友佩特羅）》
 
 先來看一下預告片
-youtube zaPBAKg3VT4
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zaPBAKg3VT4?si=2tHLjIxhJo9yJq9m" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 看了一下相關的評論之後發現真的不錯玩
 「居然可以踩滑板！居然可以用平底鍋反射子彈！居然可以踩在鐵桶上！」
@@ -155,4 +156,3 @@ youtube zaPBAKg3VT4
 ![](/images/mfp-review/Level-S.jpg)
 
 謝謝看到這邊的各位，我們下次見！
-
