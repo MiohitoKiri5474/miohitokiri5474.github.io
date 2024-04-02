@@ -23,7 +23,7 @@ hue:
   # Visit `saicaca.github.io/vivia-preview` to preview the theme color
 
 # Personal info
-avatar: # Path to the avatar image relative to /source
+avatar: /images/avatar-pic.JPG # Path to the avatar image relative to /source
 author: Mio's Blog
 subtitle: MiohitoKiri5474's Personal Blog
 links:
