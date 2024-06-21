@@ -174,5 +174,5 @@ Consider & Expressive Iteration 就是濾牌，沒什麼好說的。
 ## Epilogue
 
 這個週末是另一間店家：台南卡通卡牌的店冠，目前還不確定會不會拿 Izzet Murktide 參賽（最近 Burn 的表現也不差，有點心動），也不確定會不會加入 Preordain 到牌表中。
-不過有後續測試應該會放在[我的粉專](https://www.facebook.com/TainanMonkeyKin)中。
+不過有後續測試應該會放在[我的粉專](https://www.facebook.com/TainanMonkeyKing)中。
 今天先寫到這邊好了（沒有想到會寫那麼長），大家下個賽季見！
