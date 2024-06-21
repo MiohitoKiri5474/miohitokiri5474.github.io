@@ -1,0 +1,1 @@
+let themeFunc=async function(){var e=document.getElementById("theme-btn");let t=document.documentElement;e.addEventListener("click",e=>{"dark"==t.getAttribute("theme")?(t.setAttribute("theme","light"),localStorage.setItem("theme","light")):(t.setAttribute("theme","dark"),localStorage.setItem("theme","dark"))})};themeFunc();
