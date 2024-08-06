@@ -4,6 +4,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Body from "../components/Body.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Content from "../components/Content.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 
 type Props = CollectionEntry<"blog">["data"];
@@ -12,7 +13,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
-    <head class="pt-[56px]">
+    <head>
         <BaseHead title={title} description={description} />
         <style>
             main {
@@ -57,8 +58,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
     <Body>
         <Header />
-        <main>
-            <article class="pt-6">
+        <main class="pt-[60px]">
+            <Content>
                 <div class="hero-image">
                     {
                         heroImage && (
@@ -74,7 +75,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 <div class="prose">
                     <div class="title">
                         <div class="date">
-                            <FormattedDate date={pubDate} />
+                            {pubDate && (<FormattedDate date={pubDate} />)}
                             {
                                 updatedDate && (
                                     <div class="last-updated-on">
@@ -89,7 +90,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                     </div>
                     <slot />
                 </div>
-            </article>
+            </Content>
         </main>
         <Footer />
     </Body>

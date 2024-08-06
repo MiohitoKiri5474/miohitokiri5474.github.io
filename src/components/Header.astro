@@ -3,16 +3,18 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import { IoLogoGithub } from "react-icons/io5";
 import ThemeToggle from "./ThemeToggleButtom";
+
+const { className = "" } = Astro.props;
 ---
 
-<header class="fixed w-full p-2 z-20 backdrop-blur-md">
+<header class={`fixed w-full p-2 z-20 backdrop-blur-md ${className}`}>
     <div class="mx-auto mx-w-3xl">
         <nav class="flex items-center gap-3 text-base">
-            <h2 class="font-semibold tracking-tighter p-2 font-mplus text-lg">
+            <div class="font-semibold tracking-tighter p-2 text-lg">
                 <a href="/">
                     {SITE_TITLE}
                 </a>
-            </h2>
+            </div>
             <div class="items-center gap-6 hidden md:flex">
                 <HeaderLink href="/">Home</HeaderLink>
                 <HeaderLink href="/blog">Blog</HeaderLink>

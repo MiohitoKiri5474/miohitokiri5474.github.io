@@ -3,6 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Header from "../../components/Header.astro";
 import Body from "../../components/Body.astro";
 import Footer from "../../components/Footer.astro";
+import Masthead from "../../content/Masthead.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
@@ -85,15 +86,8 @@ const posts = (await getCollection("blog")).sort(
     </head>
     <Body>
         <Header />
-        <main class="pt-[80px]">
-            <section class="relative mb-6 h-80 flex items-center">
-                <div class="absolute w-full h-full overflow-hidden">
-                    <img
-                        class="absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
-                        src="/masthead.jpg"
-                    />
-                </div>
-            </section>
+        <main class="pt-[75px]">
+            <Masthead />
 
             <article class="px-8 mx-auto max-w-3xl">
                 <section>
