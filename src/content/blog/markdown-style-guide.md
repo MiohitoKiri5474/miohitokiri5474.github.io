@@ -1,9 +1,20 @@
 ---
-title: 'Markdown Style Guide'
-description: 'Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.'
-pubDate: 'Jul 01 2022'
-heroImage: '/blog-placeholder-1.jpg'
+title: "Markdown Style Guide"
+description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
+pubDate: "Jul 01 2022"
+heroImage: "/blog-placeholder-1.jpg"
 ---
+
+中文測試
+
+# 這是 H1
+
+> 這是註解
+
+[連結測試](https://miohitokiri5474.github.io/)
+
+1. list 測試
+1. 測試測試測試
 
 Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro.
 
