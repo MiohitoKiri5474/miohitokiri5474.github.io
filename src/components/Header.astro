@@ -18,7 +18,7 @@ const { className = "" } = Astro.props;
             </div>
             <div class="items-center gap-6 hidden md:flex">
                 <HeaderLink href="/">Home</HeaderLink>
-                <BlogSelect client:visible />
+                <BlogSelect className={className} client:visible />
                 <HeaderLink href="/about">About</HeaderLink>
                 <HeaderLink href="https://github.com/MiohitoKiri5474">
                     <IoLogoGithub />Github
