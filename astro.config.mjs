@@ -3,7 +3,7 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
-import remarkGfm from "remark-gfm";
+// import remarkGfm from "remark-gfm";
 
 // https://astro.build/config
 export default defineConfig({
@@ -14,8 +14,7 @@ export default defineConfig({
     // extendDefaultPlugins: true,
     remarkPlugins: [],
     extendDefaultPlugins: true,
-    // Enable soft line breaks globally
-    format: "gfm", // GitHub Flavored Markdown
+    format: "gfm",
     remarkOptions: {
       breaks: true,
     },
