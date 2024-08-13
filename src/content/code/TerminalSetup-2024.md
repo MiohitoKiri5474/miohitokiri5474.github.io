@@ -2,6 +2,11 @@
 title: "個人環境建置 NeoVim with LazyVim"
 pubDate: 2024-01-17 23:40:45
 heroImage: "https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/cover.png?raw=true"
+tags:
+  - iTerm2
+  - zsh
+  - neoVim
+  - LazyVim
 ---
 
 ## Before We Start
