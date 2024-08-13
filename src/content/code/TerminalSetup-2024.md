@@ -1,6 +1,7 @@
 ---
 title: "個人環境建置 NeoVim with LazyVim"
 pubDate: 2024-01-17 23:40:45
+heroImage: "https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/cover.png?raw=true"
 ---
 
 ## Before We Start
@@ -282,14 +283,14 @@ Tokeynight 也很好看，不過我之前已經用這個配色快兩年了有點
 
 ```lua
 return {
-	"craftzdog/solarized-osaka.nvim",
-	lazy = true,
-	priority = 1000,
-	otps = function()
-		return {
-			transparent = true,
-		}
-	end,
+ "craftzdog/solarized-osaka.nvim",
+ lazy = true,
+ priority = 1000,
+ otps = function()
+  return {
+   transparent = true,
+  }
+ end,
 }
 ```
 
@@ -308,16 +309,16 @@ return {
 
 ```lua
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
+ pattern = "*",
+ command = "set nopaste",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "json", "jsonc" },
-	callback = function()
-		vim.wo.spell = false
-		vim.wo.concealleave = 0
-	end,
+ pattern = { "json", "jsonc" },
+ callback = function()
+  vim.wo.spell = false
+  vim.wo.concealleave = 0
+ end,
 })
 ```
 
@@ -364,34 +365,34 @@ Language Server Protocol（語言服務器協議，LSP）是 Microsoft 於 2016 
 
 ```lua
 return {
-	{
-		"williamboman/mason.nvim",
+ {
+  "williamboman/mason.nvim",
 
-		dependencies = {
-			"williamboman/mason-lspconfig.nvim",
-		},
-		config = function()
-			local mason = require("mason")
-			local mason_lspconfig = require("mason-lspconfig")
+  dependencies = {
+   "williamboman/mason-lspconfig.nvim",
+  },
+  config = function()
+   local mason = require("mason")
+   local mason_lspconfig = require("mason-lspconfig")
 
-			mason.setup({
-				ui = {
-					icons = {
-						server_installed = "✓",
-						server_pending = "➜",
-						server_uninstalled = "✗",
-					},
-				},
-			})
-			mason_lspconfig.setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "gopls" },
-				automatic_installation = true,
-			})
-		end,
-		opts = function(_, opts)
-			table.insert(opts.ensure_installed, "black")
-		end,
-	},
+   mason.setup({
+    ui = {
+     icons = {
+      server_installed = "✓",
+      server_pending = "➜",
+      server_uninstalled = "✗",
+     },
+    },
+   })
+   mason_lspconfig.setup({
+    ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "gopls" },
+    automatic_installation = true,
+   })
+  end,
+  opts = function(_, opts)
+   table.insert(opts.ensure_installed, "black")
+  end,
+ },
 }
 ```
 
@@ -405,19 +406,19 @@ none-ls 是一個提供本身無 LS 的來源接上 LSP，提供類似 auto comp
 
 ```lua
 return {
-	{
-		"nvimtools/none-ls.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local null_ls = require("null-ls")
+ {
+  "nvimtools/none-ls.nvim",
+  dependencies = { "nvim-lua/plenary.nvim" },
+  config = function()
+   local null_ls = require("null-ls")
 
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.black,
-				},
-			})
-		end,
-	},
+   null_ls.setup({
+    sources = {
+     null_ls.builtins.formatting.black,
+    },
+   })
+  end,
+ },
 }
 ```
 
@@ -428,165 +429,165 @@ return {
 
 ```lua
 return {
-	{
-		"telescope.nvim",
-		dependencies = {
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-			},
-			"nvim-telescope/telescope-file-browser.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-		keys = {
-			{
-				"<leader>fP",
-				function()
-					require("telescope.builtin").find_files({
-						cwd = require("lazy.core.config").options.root,
-					})
-				end,
-			},
-			{
-				";f",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.find_files({
-						no_ignore = false,
-						hidden = true,
-					})
-				end,
-			},
-			{
-				";r",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.live_grep({
-						additional_args = { "--hidden" },
-					})
-				end,
-			},
-			{
-				"\\\\",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.buffers()
-				end,
-			},
-			{
-				";t",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.help_tags()
-				end,
-			},
-			{
-				";;",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.resume()
-				end,
-			},
-			{
-				";e",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.diagnostics()
-				end,
-			},
-			{
-				";s",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.treesitter()
-				end,
-			},
-			{
-				"sf",
-				function()
-					local telescope = require("telescope")
+ {
+  "telescope.nvim",
+  dependencies = {
+   {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "make",
+   },
+   "nvim-telescope/telescope-file-browser.nvim",
+   "nvim-lua/plenary.nvim",
+  },
+  keys = {
+   {
+    "<leader>fP",
+    function()
+     require("telescope.builtin").find_files({
+      cwd = require("lazy.core.config").options.root,
+     })
+    end,
+   },
+   {
+    ";f",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.find_files({
+      no_ignore = false,
+      hidden = true,
+     })
+    end,
+   },
+   {
+    ";r",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.live_grep({
+      additional_args = { "--hidden" },
+     })
+    end,
+   },
+   {
+    "\\\\",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.buffers()
+    end,
+   },
+   {
+    ";t",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.help_tags()
+    end,
+   },
+   {
+    ";;",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.resume()
+    end,
+   },
+   {
+    ";e",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.diagnostics()
+    end,
+   },
+   {
+    ";s",
+    function()
+     local builtin = require("telescope.builtin")
+     builtin.treesitter()
+    end,
+   },
+   {
+    "sf",
+    function()
+     local telescope = require("telescope")
 
-					local function telescope_buffer_dir()
-						return vim.fn.expand("%:p:h")
-					end
+     local function telescope_buffer_dir()
+      return vim.fn.expand("%:p:h")
+     end
 
-					telescope.extensions.file_browser.file_browser({
-						path = "%:p:h",
-						cwd = telescope_buffer_dir(),
-						respect_gitignore = false,
-						hidden = true,
-						grouped = true,
-						previewer = false,
-						initial_mode = "normal",
-						layout_config = { height = 40 },
-					})
-				end,
-			},
-		},
-		config = function(_, opts)
-			local telescope = require("telescope")
-			local actions = require("telescope.actions")
-			local fb_actions = require("telescope").extensions.file_browser.actions
+     telescope.extensions.file_browser.file_browser({
+      path = "%:p:h",
+      cwd = telescope_buffer_dir(),
+      respect_gitignore = false,
+      hidden = true,
+      grouped = true,
+      previewer = false,
+      initial_mode = "normal",
+      layout_config = { height = 40 },
+     })
+    end,
+   },
+  },
+  config = function(_, opts)
+   local telescope = require("telescope")
+   local actions = require("telescope.actions")
+   local fb_actions = require("telescope").extensions.file_browser.actions
 
-			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
-				wrap_results = true,
-				layout_strategy = "horizontal",
-				layout_config = { prompt_position = "top" },
-				sorting_strategy = "ascending",
-				winblend = 0,
-				mappings = {
-					n = {},
-				},
-			})
-			opts.pickers = {
-				diagnostics = {
-					theme = "ivy",
-					initial_mode = "normal",
-					layout_config = {
-						preview_cutoff = 9999,
-					},
-				},
-			}
-			opts.extensions = {
-				file_browser = {
-					theme = "dropdown",
-					-- disables netrw and use telescope-file-browser in its place
-					hijack_netrw = true,
-					mappings = {
-						-- your custom insert mode mappings
-						["n"] = {
-							-- your custom normal mode mappings
-							["N"] = fb_actions.create,
-							["h"] = fb_actions.goto_parent_dir,
-							["/"] = function()
-								vim.cmd("startinsert")
-							end,
-							["<C-u>"] = function(prompt_bufnr)
-								for i = 1, 10 do
-									actions.move_selection_previous(prompt_bufnr)
-								end
-							end,
-							["<C-d>"] = function(prompt_bufnr)
-								for i = 1, 10 do
-									actions.move_selection_next(prompt_bufnr)
-								end
-							end,
-							["<PageUp>"] = actions.preview_scrolling_up,
-							["<PageDown>"] = actions.preview_scrolling_down,
-						},
-					},
-				},
-			}
-			telescope.setup(opts)
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("file_browser")
-		end,
-	},
+   opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+    wrap_results = true,
+    layout_strategy = "horizontal",
+    layout_config = { prompt_position = "top" },
+    sorting_strategy = "ascending",
+    winblend = 0,
+    mappings = {
+     n = {},
+    },
+   })
+   opts.pickers = {
+    diagnostics = {
+     theme = "ivy",
+     initial_mode = "normal",
+     layout_config = {
+      preview_cutoff = 9999,
+     },
+    },
+   }
+   opts.extensions = {
+    file_browser = {
+     theme = "dropdown",
+     -- disables netrw and use telescope-file-browser in its place
+     hijack_netrw = true,
+     mappings = {
+      -- your custom insert mode mappings
+      ["n"] = {
+       -- your custom normal mode mappings
+       ["N"] = fb_actions.create,
+       ["h"] = fb_actions.goto_parent_dir,
+       ["/"] = function()
+        vim.cmd("startinsert")
+       end,
+       ["<C-u>"] = function(prompt_bufnr)
+        for i = 1, 10 do
+         actions.move_selection_previous(prompt_bufnr)
+        end
+       end,
+       ["<C-d>"] = function(prompt_bufnr)
+        for i = 1, 10 do
+         actions.move_selection_next(prompt_bufnr)
+        end
+       end,
+       ["<PageUp>"] = actions.preview_scrolling_up,
+       ["<PageDown>"] = actions.preview_scrolling_down,
+      },
+     },
+    },
+   }
+   telescope.setup(opts)
+   require("telescope").load_extension("fzf")
+   require("telescope").load_extension("file_browser")
+  end,
+ },
 
-	{
-		"folke/flash.nvim",
-		enabled = false,
-	},
+ {
+  "folke/flash.nvim",
+  enabled = false,
+ },
 }
 ```
 
@@ -659,7 +660,7 @@ return {
                     if vim.bo[props.buf].modified then
                         filename = "[+] " .. filename
                     end
-                    
+
                     local icon, color = require("nvim-web-devicons").get_icon_color(filename)
                     return { { icon, guifg = color }, { " " }, { filename } }
                 end,
@@ -718,7 +719,7 @@ return {
                     if next(clients) == nil then
                         return msg
                     end
-        
+
                     for _, client in ipairs(clients) do
                         local filetypes = client.config.filetypes
                         if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
@@ -748,7 +749,7 @@ return {
                 lualine_z = {},
             },
         }
-        
+
         lualine.setup(config)
         end,
     },
