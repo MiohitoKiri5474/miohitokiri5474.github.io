@@ -20,8 +20,6 @@ tags:
 
 本來只是抱持著稍微看一下的心情點開，然後我就不小心把整個 config 又重新蓋了一遍⋯⋯
 
-<!--more-->
-
 先上截圖
 
 ![](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/cover.png?raw=true)
