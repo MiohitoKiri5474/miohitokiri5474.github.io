@@ -1,23 +1,115 @@
 ---
-import Layout from "../layouts/BlogPost.astro";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import Body from "../components/Body.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Content from "../components/Content.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+
+const pubDate = new Date("August 9 2024");
 ---
 
-<Layout
-    title="MiohitoKiri5474 - About Me"
-    description="Something About Me"
-    pubDate={new Date("August 07 2024")}
->
-    <img src="/avatar-pic.jpg" />
-    <p>
-        原高中資訊競賽選手，現任成大資工學生
+<html lang="en">
+    <head>
+        <BaseHead
+            title="MiohitoKiri5474 - About Me"
+            description="Something About Me"
+        />
+        <style>
+            main {
+                width: calc(100% - 2em);
+                max-width: 100%;
+                margin: 0;
+            }
+            .hero-image {
+                width: 100%;
+                position: relative;
+            }
+            .hero-image img {
+                height: auto;
+                max-height: 500px;
+                max-width: 800px;
+                object-fit: cover;
+                display: block;
+                margin: 0 auto;
+                border-radius: 12px;
+                box-shadow: var(--box-shadow);
+            }
+            .title-wrapper {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(128, 128, 128, 0.7);
+                background: rgba(0, 0, 0, 0.1);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                padding: 1em 2em;
+                border-radius: 12px;
+                text-align: center;
+            }
+            .prose {
+                width: 720px;
+                max-width: calc(100% - 2em);
+                margin: auto;
+                padding: 1em;
+                /* color: rgb(var(--gray-dark)); */
+            }
+            .title {
+                margin-bottom: 1em;
+                padding: 1em 0;
+                text-align: center;
+                line-height: 1;
+            }
+            .title h1 {
+                margin: 0 0 0.5em 0;
+            }
+            .date {
+                margin-bottom: 0.5em;
+                /* color: rgb(var(--gray)); */
+            }
+            .last-updated-on {
+                font-style: italic;
+            }
+        </style>
+    </head>
+
+    <Body>
+        <Header />
+        <main class="pt-[80px]">
+            <Content>
+                <div class="hero-image">
+                    <img
+                        width={1020}
+                        height={510}
+                        src="/avatar-pic.jpg"
+                        alt="It's me!"
+                    />
+                </div>
+                <div class="prose">
+                    <div class="title">
+                        <div class="date">
+                            <FormattedDate date={pubDate} />
+                        </div>
+                        <h1>MiohitoKiri5474 - About Me</h1>
+                        <hr />
+                    </div>
+                    <p>
+原高中資訊競賽選手，現任成大資工學生
 曾任成大競技程式設計、程式設計二助教
 魔法風雲會競技玩家，主要熱衷於各式構築賽
 如果有需要聯絡的歡迎來信：lltzpp@gmail.com
-    </p>
-    <p>
-        Was a competitive programmer in high school and is now a CSIE student at NCKU.
+                    </p>
+                    <p>
+Was a competitive programmer in high school and is now a CSIE student at NCKU.
 Served as Advanced Competitive Programming and Program Design(2) assistant at NCKU.
 A Magic: the Gathering hardcore competitive player, mainly focus on Construct.
 If you need to contact me, please send me a mail: lltzpp@gmail.com
-    </p>
-</Layout>
+                    </p>
+                </div>
+            </Content>
+        </main>
+        <Footer />
+    </Body>
+</html>
