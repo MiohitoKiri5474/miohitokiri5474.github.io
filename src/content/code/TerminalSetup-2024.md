@@ -127,7 +127,7 @@ return {
         "author2/I-need-this",
     },
     event = "VeryLazy", -- Optional, package 觸發時機，在什麼情況下會被 load
-    lazy = true, -- Optional, 這個 package 是否要 lazy load，例如呼叫這個 package 的 commande 時才會 load
+    lazy = true, -- Optional, 這個 package 是否要 lazy load，例如呼叫這個 package 的 command 時才會 load
     command = "CMD-Name", -- Optional, 這個 package 要用什麼 command 使用
     key = {
         -- Optional, 關於這個套件的 key mapping，格式如下
