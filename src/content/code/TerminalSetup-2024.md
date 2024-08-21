@@ -16,17 +16,17 @@ tags:
 
 ⋯⋯本來應該是這樣的，就因為我在 yt 上看了太多 NeoVim 相關的影片，yt 在上週末推了這部 devaslife 的影片給我
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/fFHlfbKVi30?si=kGj6ExYNiqS6FX_N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe class="items-center" width="560" height="315" src="https://www.youtube.com/embed/fFHlfbKVi30?si=kGj6ExYNiqS6FX_N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 
 本來只是抱持著稍微看一下的心情點開，然後我就不小心把整個 config 又重新蓋了一遍⋯⋯
 
 先上截圖
 
-![](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/cover.png?raw=true)
-![](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/fuzzy.png?raw=true)
-![](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/lazy-nvim.png?raw=true)
-![](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/shot-1.png?raw=true)
-![](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/shot-2.png?raw=true)
+![screenshot-1](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/cover.png?raw=true)
+![screenshot-2](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/fuzzy.png?raw=true)
+![screenshot-3](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/lazy-nvim.png?raw=true)
+![screenshot-4](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/shot-1.png?raw=true)
+![screenshot-5](https://github.com/MiohitoKiri5474/.dotfiles/blob/main/images/shot-2.png?raw=true)
 
 基礎的部分基本上跟上一篇差不多，或者是可以去看[我目前的設定檔 repo](https://github.com/MiohitoKiri5474/.dotfiles/)
 
