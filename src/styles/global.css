@@ -184,3 +184,7 @@ pre code .line::before {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
+a {
+  text-decoration: underline;
+}
