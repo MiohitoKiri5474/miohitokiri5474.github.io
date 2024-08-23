@@ -16,7 +16,7 @@ export default function BlogSelect({ className = "" }) {
 
   return (
     <div className="flex justify-center">
-      <div className="flex gap-8">
+      <div className="flex gap-8 no-underline">
         <Popover>
           <PopoverButton
             className={`${activeLink === "code" || activeLink === "game" ? "font-bold underline" : ""}`}
@@ -30,14 +30,14 @@ export default function BlogSelect({ className = "" }) {
           >
             <div className="p-3 break-words leading-6 transition-colors">
               <a
-                className="block rounded-lg py-2 px-3 transition hover:bg-white/5"
+                className={`block rounded-lg py-2 px-3 transition hover:bg-white/5 ${activeLink === "code" ? "" : "no-underline"}`}
                 href="/code"
               >
                 <p className="font-semibold">Code</p>
                 <p>It's time to Coding!</p>
               </a>
               <a
-                className="block rounded-lg py-2 px-3 transition hover:bg-white/5 "
+                className={`block rounded-lg py-2 px-3 transition hover:bg-white/5 ${activeLink === "game" ? "" : "no-underline"}`}
                 href="/game"
               >
                 <p className="font-semibold">Game</p>

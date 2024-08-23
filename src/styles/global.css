@@ -62,12 +62,6 @@ strong,
 b {
   font-weight: 700;
 }
-p {
-  margin-bottom: 1em;
-}
-.prose p {
-  margin-bottom: 2em;
-}
 textarea {
   width: 100%;
   font-size: 16px;
@@ -147,10 +141,6 @@ ol {
   list-style-type: decimal; /* Default number style for ordered lists */
 }
 
-li {
-  margin-bottom: 0.5em; /* Adds space between list items */
-}
-
 blockquote {
   border-left: 4px solid;
   font-style: italic;
@@ -187,4 +177,8 @@ pre code .line::before {
 
 a {
   text-decoration: underline;
+}
+
+.no-underline {
+  text-decoration: none;
 }
