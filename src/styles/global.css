@@ -69,9 +69,7 @@ textarea {
 input {
   font-size: 16px;
 }
-table {
-  width: 100%;
-}
+
 img {
   max-width: 100%;
   height: auto;
@@ -170,13 +168,18 @@ pre code .line::before {
   color: rgba(115, 138, 148, 0.4);
 }
 
-.prose {
+.prose p {
   white-space: pre-wrap;
   word-wrap: break-word;
+  margin-bottom: 2em;
 }
 
 a {
   text-decoration: underline;
+}
+
+table {
+  width: 100%;
 }
 
 .no-underline {
