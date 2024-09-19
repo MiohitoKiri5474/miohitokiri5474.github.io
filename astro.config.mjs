@@ -3,16 +3,16 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
-// import remarkGfm from "remark-gfm";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://miohitokiri5474.github.io/",
   integrations: [sitemap(), react(), image(), tailwind()],
   markdown: {
-    // remarkPlugins: [remarkGfm],
-    // extendDefaultPlugins: true,
-    remarkPlugins: [],
+    remarkPlugins: [remarkMath],
+    rehypePlugins: [rehypeKatex],
     extendDefaultPlugins: true,
     format: "gfm",
     remarkOptions: {
