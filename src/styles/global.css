@@ -45,22 +45,28 @@ h6 {
 }
 h1 {
   font-size: 3.052em;
+  margin-bottom: 1em;
 }
 h2 {
   font-size: 2.441em;
+  margin-bottom: 1em;
 }
 h3 {
   font-size: 1.953em;
+  margin-bottom: 1em;
 }
 h4 {
   font-size: 1.563em;
+  margin-bottom: 1em;
 }
 h5 {
   font-size: 1.25em;
+  margin-bottom: 1em;
 }
 strong,
 b {
   font-weight: 700;
+  margin-bottom: 1em;
 }
 textarea {
   width: 100%;
@@ -74,19 +80,16 @@ img {
   max-width: 100%;
   height: auto;
   border-radius: 8px;
+  margin-bottom: 1em;
 }
-code {
-  padding: 2px 5px;
-  border-radius: 2px;
-}
+
 pre {
   padding: 1.5em;
   border-radius: 8px;
   overflow-x: auto;
+  margin-bottom: 1em;
 }
-pre > code {
-  all: unset;
-}
+
 blockquote {
   border-left: 4px solid var(--accent);
   padding: 0 0 0 20px;
@@ -149,29 +152,10 @@ pre {
   @apply rounded-md pl-8;
 }
 
-pre code {
-  @apply block leading-tight p-2 pl-1;
-  font-size: 17px;
-  border-left: 1px solid rgba(115, 138, 148, 0.4);
-  counter-reset: step;
-  counter-increment: step 0;
-}
-
-pre code .line {
-  @apply relative;
-}
-
-pre code .line::before {
-  @apply absolute overflow-hidden w-7 h-4 -left-9 top-0 text-right;
-  content: counter(step);
-  counter-increment: step;
-  color: rgba(115, 138, 148, 0.4);
-}
-
 .prose p {
   white-space: pre-wrap;
   word-wrap: break-word;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 
 a {
@@ -180,8 +164,28 @@ a {
 
 table {
   width: 100%;
+  margin-bottom: 1em;
 }
 
 .no-underline {
   text-decoration: none;
+}
+
+code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+code .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 1rem;
+  margin-right: 1.5rem;
+  display: inline-block;
+  text-align: right;
+}
+
+code .line:last-child:empty::before {
+  content: none;
+  counter-increment: none;
 }
