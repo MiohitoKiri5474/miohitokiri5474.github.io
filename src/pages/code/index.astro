@@ -30,38 +30,40 @@ const posts = (await getCollection("code")).sort(
             }
             ul li {
                 width: calc(50% - 1rem);
+                height: auto;
+                display: grid;
             }
             ul li * {
+                width: 336;
+                height: 250;
                 text-decoration: none;
                 transition: 0.2s ease;
             }
             ul li:first-child {
                 width: 100%;
+                height: auto;
                 margin-bottom: 1rem;
                 text-align: center;
             }
             ul li:first-child img {
                 width: auto;
-                height: 500px;
+                max-height: 500px;
             }
             ul li:first-child .title {
                 font-size: 2.369rem;
             }
             ul li img {
                 margin-bottom: 0.5rem;
-                border-radius: 12px;
             }
             ul li a {
                 display: block;
             }
             .title {
                 margin: 0;
-                /* color: rgb(var(--black)); */
                 line-height: 1;
             }
             .date {
                 margin: 0;
-                /* color: rgb(var(--gray)); */
             }
             ul li a:hover h4,
             ul a:hover img {
@@ -81,7 +83,11 @@ const posts = (await getCollection("code")).sort(
                 ul li:first-child .title {
                     font-size: 1.563em;
                 }
+                .list-item {
+                    width: 100%;
+                }
             }
+
             .bg-blur {
                 background: rgba (0, 0, 0, 0.5);
                 backdrop-filter: blur(5px);
@@ -89,7 +95,37 @@ const posts = (await getCollection("code")).sort(
                 padding: 2em;
                 border-radius: 0.5em;
             }
-        </style>
+
+            .list-item {
+                width: calc(50% - 1rem);
+                display: grid;
+                grid-template-rows: 80% 20%;
+                height: 350px;
+                text-align: center;
+            }
+
+            .image-container {
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                border-radius: 12px;
+            }
+
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;  /* Center the text vertically in the 20% section */
+                padding: 10px;
+            }
+            </style>
     </head>
     <Body>
         <Header className="text-zinc-900" />
@@ -117,24 +153,26 @@ const posts = (await getCollection("code")).sort(
                     <ul>
                         {
                             posts.map((post) => (
-                                <li class="text-center">
+                                <li class="list-item">
                                     <a href={`/code/${post.slug}/`}>
-                                        <img
-                                            width={720}
-                                            height={360}
-                                            src={
-                                                post.data.heroImage
-                                                    ? post.data.heroImage
-                                                    : "/code-default.jpg"
-                                            }
-                                            alt=""
-                                        />
-                                        <h4 class="title">{post.data.title}</h4>
-                                        <p class="date">
-                                            <FormattedDate
-                                                date={post.data.pubDate}
+                                        <div class="image-container">
+                                            <img
+                                                src={
+                                                    post.data.heroImage
+                                                        ? post.data.heroImage
+                                                        : "/code-default.jpg"
+                                                }
+                                                alt=""
                                             />
-                                        </p>
+                                        </div>
+                                        <div class="text-container">
+                                            <h4 class="title">{post.data.title}</h4>
+                                            <p class="date">
+                                                <FormattedDate
+                                                    date={post.data.pubDate}
+                                                />
+                                            </p>
+                                        </div>
                                     </a>
                                 </li>
                             ))

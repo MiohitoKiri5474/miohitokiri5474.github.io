@@ -12,7 +12,6 @@ type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props;
 ---
-
 <script>
     const observer = new MutationObserver(addPreCopyButton);
     observer.observe(document.body, { childList: true, subtree: true });
