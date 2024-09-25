@@ -1,16 +1,27 @@
 ---
-import type { CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Body from "../components/Body.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Content from "../components/Content.astro";
 import FormattedDate from "../components/FormattedDate.astro";
+import TableOfContents from "../components/TableOfContent.astro";
 import "/node_modules/katex/dist/katex.min.css";
 
-type Props = CollectionEntry<"blog">["data"];
+export async function getStaticPaths() {
+    const posts = await getCollection("code");
+    return posts.map((post) => ({
+        params: { slug: post.slug },
+        props: post,
+    }));
+}
 
-const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props;
+type Props = CollectionEntry<"code">;
+
+const post = Astro.props;
+const { headings } = await post.render();
+const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props["data"];
 ---
 <script>
     const observer = new MutationObserver(addPreCopyButton);
@@ -135,6 +146,7 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
         <Header />
         <main class="pt-[80px]">
             <Content>
+                <TableOfContents headings={headings} />
                 {
                     heroImage ? (
                         <div class="hero-image">
