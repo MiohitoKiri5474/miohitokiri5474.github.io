@@ -1,5 +1,4 @@
 ---
-import { type CollectionEntry, getCollection } from "astro:content";
 import BaseHead from "../components/BaseHead.astro";
 import Body from "../components/Body.astro";
 import Header from "../components/Header.astro";
@@ -8,16 +7,6 @@ import Content from "../components/Content.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
 import "/node_modules/katex/dist/katex.min.css";
-
-export async function getStaticPaths() {
-    const posts = await getCollection("code");
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: post,
-    }));
-}
-
-type Props = CollectionEntry<"code">;
 
 const post = Astro.props;
 const { headings } = await post.render();
