@@ -6,7 +6,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Content from "../components/Content.astro";
 import FormattedDate from "../components/FormattedDate.astro";
-import TableOfContents from "../components/TableOfContent.astro";
+import TableOfContents from "../components/TableOfContents.astro";
 import "/node_modules/katex/dist/katex.min.css";
 
 export async function getStaticPaths() {
@@ -141,7 +141,7 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
             }
             .container {
                 display: grid;
-                grid-template-columns: 80% 20%;
+                grid-template-columns: 80% auto;
             }
         </style>
     </head>
@@ -150,7 +150,6 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
         <Header />
         <main class="pt-[80px]">
             <Content>
-                <h2 id="your-heading-id">Your Heading</h2> // debugging
                 <div class="container">
                     <div>
                         {
@@ -202,7 +201,7 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
                             )
                         }
                     </div>
-                    <TableOfContents headings={headings} />
+                    <TableOfContents headings={headings} title={title} />
                 </div>
             </Content>
         </main>
