@@ -189,3 +189,7 @@ code .line:last-child:empty::before {
   content: none;
   counter-increment: none;
 }
+
+li {
+  white-space: pre-wrap;
+}
