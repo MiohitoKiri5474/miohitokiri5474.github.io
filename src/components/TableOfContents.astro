@@ -1,0 +1,71 @@
+---
+import TableOfContentsHeading from "./TableOfContentsHeading.astro";
+
+function buildTOC(headings) {
+    const toc = [];
+    const parentHeadings = new Map();
+    const numbering = new Map();
+    headings.forEach((h) => {
+        const heading = { ...h, subheadings: [] };
+        parentHeadings.set(heading.depth, heading);
+        numbering.set(heading.depth, (numbering.get(heading.depth) || 0) + 1);
+        const prefix = Array.from(numbering.entries())
+            .filter(([depth, num]) => num > 0)
+            .map(([depth, num]) => num)
+            .join('.');
+        heading.prefix = prefix;
+        // Reset numbering for deeper levels
+        for (let i = heading.depth + 1; i <= 6; i++) numbering.set(i, 0);
+        // Change 2 to 1 if your markdown includes your <h1>
+        if (heading.depth === 2) {
+            toc.push(heading);
+        } else {
+            parentHeadings.get(heading.depth - 1).subheadings.push(heading);
+        }
+    });
+
+    return toc;
+}
+
+const { headings, title } = Astro.props;
+const toc = buildTOC(headings);
+---
+
+<style>
+    ul {
+        list-style-type: none;
+        /* padding-left: 0; */
+        /* margin: 0em; */
+        /* margin-top: 1em; */
+        padding-left: 0;
+        margin: 0;
+        white-space: normal;
+    }
+    .toc {
+        flex-basis: 20%;
+        position: sticky;
+        top: 60px;
+        height: max-content;
+        text-wrap: pretty;
+        overflow-x: auto;
+        max-width: 100%;
+        margin-bottom: 0;
+    }
+    .toc-title {
+        font: 50pt;
+        text-wrap: wrap;
+    }
+    h5 {
+        font-size: 1.25em;
+        margin: 0rem;
+        margin-bottom: 0.5rem;
+    }
+</style>
+
+<nav class="toc max-h-[80vh] overflow-y-auto">
+    <p class=text-zinc-500>On This Page</p>
+    <h5 class="font-bold toc-title text-orange-500">{title}</h5>
+    <ul>
+        {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
+    </ul>
+</nav>
