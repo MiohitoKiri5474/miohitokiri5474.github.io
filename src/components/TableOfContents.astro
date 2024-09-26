@@ -9,14 +9,13 @@ function buildTOC(headings) {
         const heading = { ...h, subheadings: [] };
         parentHeadings.set(heading.depth, heading);
         numbering.set(heading.depth, (numbering.get(heading.depth) || 0) + 1);
+        // Reset numbering for deeper levels
+        for (let i = heading.depth + 1; i <= 6; i++) numbering.set(i, 0);
         const prefix = Array.from(numbering.entries())
             .filter(([depth, num]) => num > 0)
             .map(([depth, num]) => num)
-            .join('.');
+            .join(".");
         heading.prefix = prefix;
-        // Reset numbering for deeper levels
-        for (let i = heading.depth + 1; i <= 6; i++) numbering.set(i, 0);
-        // Change 2 to 1 if your markdown includes your <h1>
         if (heading.depth === 2) {
             toc.push(heading);
         } else {
@@ -63,7 +62,7 @@ const toc = buildTOC(headings);
 </style>
 
 <nav class="toc max-h-[80vh] overflow-y-auto">
-    <p class=text-zinc-500>On This Page</p>
+    <p class="text-zinc-500">On This Page</p>
     <h5 class="font-bold toc-title text-orange-500">{title}</h5>
     <ul>
         {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
