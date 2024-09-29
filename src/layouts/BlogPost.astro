@@ -136,48 +136,6 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
                 max-width: 100%;
                 margin: 0 auto;
             }
-            @media (max-width: 500px) {
-                .hero-image {
-                    width: 300px;
-                    position: relative;
-                }
-                .hero-image img {
-                    height: auto;
-                    width: 250px;
-                    max-height: 500px;
-                    max-width: 800px;
-                    object-fit: cover;
-                    display: block;
-                    margin: 0 auto;
-                    border-radius: 12px;
-                    box-shadow: var(--box-shadow);
-                }
-                .title-wrapper {
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    background-color: rgba(128, 128, 128, 0.7);
-                    background: rgba(0, 0, 0, 0.1);
-                    backdrop-filter: blur(10px);
-                    -webkit-backdrop-filter: blur(10px);
-                    padding: 1em 2em;
-                    border-radius: 12px;
-                    text-align: center;
-                }
-                .container {
-                    grid-template-columns: 1fr;
-                    padding: 0 1rem;
-                }
-                .prose {
-                    width: 200px;
-                    max-width: 100%;
-                    padding: 0 1rem;
-                }
-                .toc {
-                    display: none;
-                }
-            }
         </style>
     </head>
 
