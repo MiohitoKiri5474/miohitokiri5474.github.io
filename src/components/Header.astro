@@ -4,6 +4,7 @@ import { SITE_TITLE } from "../consts";
 import { IoLogoGithub } from "react-icons/io5";
 import ThemeToggle from "./ThemeToggleButtom";
 import BlogSelect from "./BlogSelect";
+import DropdownMenu from "./DropdownMenu.tsx";
 
 const { className = "" } = Astro.props;
 ---
@@ -26,6 +27,7 @@ const { className = "" } = Astro.props;
             </div>
             <div class="flex-1"></div>
             <ThemeToggle client:visible />
+            <DropdownMenu client:visible />
         </nav>
     </div>
 </header>
