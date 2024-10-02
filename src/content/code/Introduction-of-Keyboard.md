@@ -198,7 +198,7 @@ PBT 全名為 Polybutylene terephthalate，學名是聚對苯二甲酸丁二酯
 
 ### CORSAIR 海盜船
 
-作為另一間電競 ~~光污染~~ 大廠雷蛇，也是有許多機械鍵盤系列，不過通常是使用 Cherry 軸
+作為另一間電競 ~~光污染~~ 大廠海盜船，也是有許多機械鍵盤系列，不過通常是使用 Cherry 軸
 
 圖為 K100 OPX
 ![](https://img.pchome.com.tw/cs/items/DCAHEKA900G90PU/000001_1681974043.jpg?width=480)
