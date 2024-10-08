@@ -198,7 +198,7 @@ PBT 全名為 Polybutylene terephthalate，學名是聚對苯二甲酸丁二酯
 
 ### CORSAIR 海盜船
 
-作為另一間電競 ~~光污染~~ 大廠雷蛇，也是有許多機械鍵盤系列，不過通常是使用 Cherry 軸
+作為另一間電競 ~~光污染~~ 大廠海盜船，也是有許多機械鍵盤系列，不過通常是使用 Cherry 軸
 
 圖為 K100 OPX
 ![](https://img.pchome.com.tw/cs/items/DCAHEKA900G90PU/000001_1681974043.jpg?width=480)
@@ -234,7 +234,7 @@ PBT 全名為 Polybutylene terephthalate，學名是聚對苯二甲酸丁二酯
 
 因為 60% 鍵盤配置的關係，Esc 鍵其實是替代掉了左上的按鍵、同時也沒有獨立的方向鍵，用了一兩年之後開始換鍵盤的念頭 ~~絕對不是因為青軸太吵連自己帶耳機都受不了所以才想換鍵盤~~
 
-當時想買一把有 RGB 背光的 80% 鍵盤 ~~還沒覺醒成迷在光污染中~~，同時久聞 Razer 大名因此買了一把二手的 BlackWidow Tournament Edition Chroma，順便體驗一下橘軸（對標至 Cherry 的茶軸）
+當時想買一把有 RGB 背光的 80% 鍵盤 ~~還沒覺醒沈迷在光污染中~~，同時久聞 Razer 大名因此買了一把二手的 BlackWidow Tournament Edition Chroma，順便體驗一下橘軸（對標至 Cherry 的茶軸）
 
 不過因為其本身是二手鍵盤，接手的時候就有些小毛病，用了半年多毛病越來越明顯，最後趁著還能用的時候趕快出清出去
 
