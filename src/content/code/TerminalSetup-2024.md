@@ -83,7 +83,7 @@ rm -rf ~/.config/nvim/.git
 1. Lazy 不需要預先編譯，Packer 其實會編譯出一個暫存檔以供 nvim 使用
 2. Lazy 的整體大小更輕量
 3. Lazy 有完整的 UI 介面，我知道在 CLI 的 editor 裡面要求有好看的 UI 介面很怪但是（ry
-4. Lazy 會在 nvim 啟動時自動檢查是否有套件需要更新、config 中是否有以新增但尚未安裝的套件
+4. Lazy 會在 nvim 啟動時自動檢查是否有套件需要更新、config 中是否有已新增但尚未安裝的套件
 
 這邊只有舉出幾個比較常見的差異，更詳細的內容可以參考這篇：[使用lazy.nvim作为你的Neovim插件管理器](https://zhuanlan.zhihu.com/p/599306319)
 
@@ -276,7 +276,7 @@ keymap.set("n", "sv", ":vsplit<Return>", opt)
 ```
 
 順便提一下，LazyVim 的 leader 預設為空白鍵 space
-對於 leader 不了用途的，可以參考這篇文章：[VIM学习笔记 前缀键(leader)](https://zhuanlan.zhihu.com/p/63626180)
+對於 leader 用途不了解的，可以參考這篇文章：[VIM学习笔记 前缀键(leader)](https://zhuanlan.zhihu.com/p/63626180)
 
 ### Color Theme
 
@@ -285,14 +285,14 @@ Tokeynight 也很好看，不過我之前已經用這個配色快兩年了有點
 
 ```lua
 return {
-	"craftzdog/solarized-osaka.nvim",
-	lazy = true,
-	priority = 1000,
-	otps = function()
-		return {
-			transparent = true,
-		}
-	end,
+    "craftzdog/solarized-osaka.nvim",
+    lazy = true,
+    priority = 1000,
+    otps = function()
+        return {
+            transparent = true,
+        }
+    end,
 }
 ```
 
@@ -309,19 +309,20 @@ return {
 另外用預設的 set up 時，json 中文件的雙引號會被消掉，只有在游標移動到該行時才會顯示
 為了減少漏看的麻煩，這邊在 `lua/config/autocmds.lua` 中，加入以下設定取消這項功能
 
-````lua
+```lua
 vim.api.nvim_create_autocmd("InsertLeave", {
-	pattern = "*",
-	command = "set nopaste",
+    pattern = "\*",
+    command = "set nopaste",
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "json", "jsonc" },
-	callback = function()
-		vim.wo.spell = false
-		vim.wo.concealleave = 0
-	end,
-})```
+    pattern = { "json", "jsonc" },
+    callback = function()
+        vim.wo.spell = false
+        vim.wo.concealleave = 0
+    end,
+})
+```
 
 ### Install Extras
 
@@ -339,7 +340,7 @@ vim.api.nvim_create_autocmd("FileType", {
 { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
 { import = "lazyvim.plugins.extras.lsp.none-ls" },
 { import = "lazyvim.plugins.extras.ui.mini-animate" },
-````
+```
 
 其餘的 extras 請參考[網頁](https://www.lazyvim.org/extras)
 
@@ -366,33 +367,33 @@ Language Server Protocol（語言服務器協議，LSP）是 Microsoft 於 2016 
 
 ```lua
 return {
-{
-"williamboman/mason.nvim",
+    {
+        "williamboman/mason.nvim",
 
-    	dependencies = {
-    		"williamboman/mason-lspconfig.nvim",
-    	},
-    	config = function()
-    		local mason = require("mason")
-    		local mason_lspconfig = require("mason-lspconfig")
+        dependencies = {
+            "williamboman/mason-lspconfig.nvim",
+        },
+        config = function()
+            local mason = require("mason")
+            local mason_lspconfig = require("mason-lspconfig")
 
-    		mason.setup({
-    			ui = {
-    				icons = {
-    					server_installed = "✓",
-    					server_pending = "➜",
-    					server_uninstalled = "✗",
-    				},
-    			},
-    		})
-    		mason_lspconfig.setup({
-    			ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "gopls" },
-    			automatic_installation = true,
-    		})
-    	end,
-    	opts = function(_, opts)
-    		table.insert(opts.ensure_installed, "black")
-    	end,
+            mason.setup({
+                ui = {
+                    icons = {
+                        server_installed = "✓",
+                        server_pending = "➜",
+                        server_uninstalled = "✗",
+                    },
+                },
+            })
+            mason_lspconfig.setup({
+                ensure_installed = { "lua_ls", "rust_analyzer", "clangd", "pyright", "gopls" },
+                automatic_installation = true,
+            })
+        end,
+        opts = function(_, opts)
+            table.insert(opts.ensure_installed, "black")
+        end,
     },
 
 }
@@ -409,19 +410,19 @@ none-ls 是一個提供本身無 LS 的來源接上 LSP，提供類似 auto comp
 
 ```lua
 return {
-	{
-		"nvimtools/none-ls.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			local null_ls = require("null-ls")
+    {
+        "nvimtools/none-ls.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            local null_ls = require("null-ls")
 
-			null_ls.setup({
-				sources = {
-					null_ls.builtins.formatting.black,
-				},
-			})
-		end,
-	},
+            null_ls.setup({
+                sources = {
+                    null_ls.builtins.formatting.black,
+                },
+            })
+        end,
+    },
 }
 ```
 
@@ -432,165 +433,165 @@ return {
 
 ```lua
 return {
-	{
-		"telescope.nvim",
-		dependencies = {
-			{
-				"nvim-telescope/telescope-fzf-native.nvim",
-				build = "make",
-			},
-			"nvim-telescope/telescope-file-browser.nvim",
-			"nvim-lua/plenary.nvim",
-		},
-		keys = {
-			{
-				"<leader>fP",
-				function()
-					require("telescope.builtin").find_files({
-						cwd = require("lazy.core.config").options.root,
-					})
-				end,
-			},
-			{
-				";f",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.find_files({
-						no_ignore = false,
-						hidden = true,
-					})
-				end,
-			},
-			{
-				";r",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.live_grep({
-						additional_args = { "--hidden" },
-					})
-				end,
-			},
-			{
-				"\\\\",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.buffers()
-				end,
-			},
-			{
-				";t",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.help_tags()
-				end,
-			},
-			{
-				";;",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.resume()
-				end,
-			},
-			{
-				";e",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.diagnostics()
-				end,
-			},
-			{
-				";s",
-				function()
-					local builtin = require("telescope.builtin")
-					builtin.treesitter()
-				end,
-			},
-			{
-				"sf",
-				function()
-					local telescope = require("telescope")
+    {
+        "telescope.nvim",
+        dependencies = {
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+            },
+            "nvim-telescope/telescope-file-browser.nvim",
+            "nvim-lua/plenary.nvim",
+        },
+        keys = {
+            {
+                "<leader>fP",
+                function()
+                    require("telescope.builtin").find_files({
+                        cwd = require("lazy.core.config").options.root,
+                    })
+                end,
+            },
+            {
+                ";f",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.find_files({
+                        no_ignore = false,
+                        hidden = true,
+                    })
+                end,
+            },
+            {
+                ";r",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.live_grep({
+                        additional_args = { "--hidden" },
+                    })
+                end,
+            },
+            {
+                "\\\\",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.buffers()
+                end,
+            },
+            {
+                ";t",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.help_tags()
+                end,
+            },
+            {
+                ";;",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.resume()
+                end,
+            },
+            {
+                ";e",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.diagnostics()
+                end,
+            },
+            {
+                ";s",
+                function()
+                    local builtin = require("telescope.builtin")
+                    builtin.treesitter()
+                end,
+            },
+            {
+                "sf",
+                function()
+                    local telescope = require("telescope")
 
-					local function telescope_buffer_dir()
-						return vim.fn.expand("%:p:h")
-					end
+                    local function telescope_buffer_dir()
+                        return vim.fn.expand("%:p:h")
+                    end
 
-					telescope.extensions.file_browser.file_browser({
-						path = "%:p:h",
-						cwd = telescope_buffer_dir(),
-						respect_gitignore = false,
-						hidden = true,
-						grouped = true,
-						previewer = false,
-						initial_mode = "normal",
-						layout_config = { height = 40 },
-					})
-				end,
-			},
-		},
-		config = function(_, opts)
-			local telescope = require("telescope")
-			local actions = require("telescope.actions")
-			local fb_actions = require("telescope").extensions.file_browser.actions
+                    telescope.extensions.file_browser.file_browser({
+                        path = "%:p:h",
+                        cwd = telescope_buffer_dir(),
+                        respect_gitignore = false,
+                        hidden = true,
+                        grouped = true,
+                        previewer = false,
+                        initial_mode = "normal",
+                        layout_config = { height = 40 },
+                    })
+                end,
+            },
+        },
+        config = function(_, opts)
+            local telescope = require("telescope")
+            local actions = require("telescope.actions")
+            local fb_actions = require("telescope").extensions.file_browser.actions
 
-			opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
-				wrap_results = true,
-				layout_strategy = "horizontal",
-				layout_config = { prompt_position = "top" },
-				sorting_strategy = "ascending",
-				winblend = 0,
-				mappings = {
-					n = {},
-				},
-			})
-			opts.pickers = {
-				diagnostics = {
-					theme = "ivy",
-					initial_mode = "normal",
-					layout_config = {
-						preview_cutoff = 9999,
-					},
-				},
-			}
-			opts.extensions = {
-				file_browser = {
-					theme = "dropdown",
-					-- disables netrw and use telescope-file-browser in its place
-					hijack_netrw = true,
-					mappings = {
-						-- your custom insert mode mappings
-						["n"] = {
-							-- your custom normal mode mappings
-							["N"] = fb_actions.create,
-							["h"] = fb_actions.goto_parent_dir,
-							["/"] = function()
-								vim.cmd("startinsert")
-							end,
-							["<C-u>"] = function(prompt_bufnr)
-								for i = 1, 10 do
-									actions.move_selection_previous(prompt_bufnr)
-								end
-							end,
-							["<C-d>"] = function(prompt_bufnr)
-								for i = 1, 10 do
-									actions.move_selection_next(prompt_bufnr)
-								end
-							end,
-							["<PageUp>"] = actions.preview_scrolling_up,
-							["<PageDown>"] = actions.preview_scrolling_down,
-						},
-					},
-				},
-			}
-			telescope.setup(opts)
-			require("telescope").load_extension("fzf")
-			require("telescope").load_extension("file_browser")
-		end,
-	},
+            opts.defaults = vim.tbl_deep_extend("force", opts.defaults, {
+                wrap_results = true,
+                layout_strategy = "horizontal",
+                layout_config = { prompt_position = "top" },
+                sorting_strategy = "ascending",
+                winblend = 0,
+                mappings = {
+                    n = {},
+                },
+            })
+            opts.pickers = {
+                diagnostics = {
+                    theme = "ivy",
+                    initial_mode = "normal",
+                    layout_config = {
+                        preview_cutoff = 9999,
+                    },
+                },
+            }
+            opts.extensions = {
+                file_browser = {
+                    theme = "dropdown",
+                    -- disables netrw and use telescope-file-browser in its place
+                    hijack_netrw = true,
+                    mappings = {
+                        -- your custom insert mode mappings
+                        ["n"] = {
+                            -- your custom normal mode mappings
+                            ["N"] = fb_actions.create,
+                            ["h"] = fb_actions.goto_parent_dir,
+                            ["/"] = function()
+                                vim.cmd("startinsert")
+                            end,
+                            ["<C-u>"] = function(prompt_bufnr)
+                                for i = 1, 10 do
+                                    actions.move_selection_previous(prompt_bufnr)
+                                end
+                            end,
+                            ["<C-d>"] = function(prompt_bufnr)
+                                for i = 1, 10 do
+                                    actions.move_selection_next(prompt_bufnr)
+                                end
+                            end,
+                            ["<PageUp>"] = actions.preview_scrolling_up,
+                            ["<PageDown>"] = actions.preview_scrolling_down,
+                        },
+                    },
+                },
+            }
+            telescope.setup(opts)
+            require("telescope").load_extension("fzf")
+            require("telescope").load_extension("file_browser")
+        end,
+    },
 
-	{
-		"folke/flash.nvim",
-		enabled = false,
-	},
+    {
+        "folke/flash.nvim",
+        enabled = false,
+    },
 }
 ```
 
@@ -912,3 +913,7 @@ return {
 這應該是我有史以來寫過最長的文章了（？），md 原始檔有 900 多行
 雖然其中應該有 400 行以上都是複製貼上的 code，另外還有 50 行左右的空行，但還是一個小小的里程碑
 不知道以後有沒有機會寫出破 1000 行的文章XD
+
+```
+
+```
