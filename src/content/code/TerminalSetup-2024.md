@@ -903,7 +903,7 @@ return {
 
 在撰文當下的這幾天，我幾乎都在各種的蓋 config
 像是我把 zsh 和 tmux 的 config 重建了一次，不過都是很基礎的設定，如果想要看我做了什麼可以到我的 dotfiles 看看
-基本上就是重改，把一些多餘的 config 拔掉，然後換新的 theme setu，就這樣
+基本上就是重改，把一些多餘的 config 拔掉，然後換新的 theme setup，就這樣
 
 本來差點還要蓋一個新的 window manager，不過蓋到一半要測試的時候感覺卡卡的很怪，不知道是不是不支援 HiDIP 還是因為我的 HiDPI 是硬開的（我的外接螢幕解析度只有 2k，macOS 本身是不支援 HiDPI 的），所以蓋到一半只能忍痛刪掉
 總之最近的我是 config 狂人（？），各種蓋 config，還順手寫了篇文章XD
