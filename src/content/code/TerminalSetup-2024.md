@@ -797,7 +797,7 @@ return {
 ### treesitter
 
 treesitter 是一個 highlighting 用的插件，支援多種語言，讓程式碼便的更好讀
-這邊加入了幾個我比較常用的語言，確保他們都有安裝，然後將 mdx 是為 md
+這邊加入了幾個我比較常用的語言，確保他們都有安裝
 
 ```lua
 return {
