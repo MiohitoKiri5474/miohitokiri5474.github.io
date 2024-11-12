@@ -9,7 +9,6 @@ import TableOfContents from "../components/TableOfContents.astro";
 import "/node_modules/katex/dist/katex.min.css";
 
 import "../styles/BlogPost.css"
-import { displayPartsToString } from "typescript";
 
 const post = Astro.props;
 const { headings } = await post.render();
