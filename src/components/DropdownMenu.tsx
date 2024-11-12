@@ -5,10 +5,10 @@ import BlogSelect from "./BlogSelect";
 
 export default function DropdownMenu() {
   return (
-    <Menu as="div" className="relative inline-block text-right">
+    <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button
-          className="inline-flex justify-center rounded-md border border-zinc-400 dark:border-zinc-700 px-2 py-2 text-sm font-medium shadow-sm hover:bg-orange-200 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 transition-all"
+          className="inline-flex justify-center rounded-md border border-zinc-400 dark:border-zinc-700 px-2 py-2 text-sm font-medium shadow-sm hover:bg-orange-200 dark:hover:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 transition-all no-underline"
           aria-label="menu"
         >
           <IoMenu className="h-4 w-5" />
@@ -29,7 +29,7 @@ export default function DropdownMenu() {
               {({ active }) => (
                 <a
                   href="/"
-                  className={`block px-4 py-2 text-sm uppercase font-bold ${
+                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
                   }`}
                 >
@@ -41,7 +41,7 @@ export default function DropdownMenu() {
               {({ active }) => (
                 <a
                   href="/code"
-                  className={`block px-4 py-2 text-sm uppercase font-bold ${
+                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
                   }`}
                 >
@@ -53,7 +53,7 @@ export default function DropdownMenu() {
               {({ active }) => (
                 <a
                   href="/game"
-                  className={`block px-4 py-2 text-sm uppercase font-bold ${
+                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
                   }`}
                 >
@@ -65,7 +65,7 @@ export default function DropdownMenu() {
               {({ active }) => (
                 <a
                   href="/about"
-                  className={`block px-4 py-2 text-sm uppercase font-bold ${
+                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
                   }`}
                 >
@@ -77,7 +77,7 @@ export default function DropdownMenu() {
               {({ active }) => (
                 <a
                   href="https://github.com/MiohitoKiri5474"
-                  className={`block px-4 py-2 text-sm uppercase font-bold ${
+                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
                   }`}
                 >
