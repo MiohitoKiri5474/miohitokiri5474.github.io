@@ -45,23 +45,23 @@ h6 {
 }
 h1 {
   font-size: 3.052em;
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h2 {
   font-size: 2.441em;
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h3 {
   font-size: 1.953em;
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h4 {
   font-size: 1.563em;
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 h5 {
   font-size: 1.25em;
-  margin-top: 1em;
+  margin-bottom: 1em;
 }
 strong,
 b {
@@ -84,6 +84,8 @@ img {
 }
 
 pre {
+  width: 100%;
+  /* max-width: 720px; */
   padding: 1.5em;
   border-radius: 8px;
   overflow-x: auto;
@@ -140,9 +142,9 @@ blockquote {
   font-size: 1em;
 }
 
-pre {
-  @apply rounded-md pl-8;
-}
+/* pre { */
+/*   @apply rounded-md pl-8; */
+/* } */
 
 .prose p {
   white-space: pre-wrap;
@@ -172,7 +174,7 @@ code .line::before {
   content: counter(step);
   counter-increment: step;
   width: 1rem;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   display: inline-block;
   text-align: right;
 }

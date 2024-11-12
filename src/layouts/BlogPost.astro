@@ -9,12 +9,13 @@ import TableOfContents from "../components/TableOfContents.astro";
 import "/node_modules/katex/dist/katex.min.css";
 
 import "../styles/BlogPost.css"
+import { displayPartsToString } from "typescript";
 
 const post = Astro.props;
 const { headings } = await post.render();
 const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props["data"];
 ---
-<script>
+<script is:inline>
     const observer = new MutationObserver(addPreCopyButton);
     observer.observe(document.body, { childList: true, subtree: true });
 
@@ -37,7 +38,7 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
 
             let copyButton = document.createElement("button");
             copyButton.className =
-                "copy-code btn-regular absolute top-0 right-0 text-sm px-3 py-2 rounded-bl-lg rounded-tr-lg opacity-75 hover:opacity-100 transition-all duration-200 ease-in-out";
+                "copy-code btn-regular absolute top-0 right-0 text-sm px-3 py-2 rounded-bl-lg rounded-tr-lg opacity-75 hover:opacity-100 transition-all duration-200 ease-in-out text-zinc-300";
             copyButton.textContent = "Copy";
 
             codeBlock.setAttribute("tabindex", "0");
@@ -81,49 +82,28 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
                         {
                             heroImage ? (
                                 <div class="hero-image">
-                                    <img
-                                        src={heroImage}
-                                        alt=""
-                                    />
-                                    <div class="title-wrapper text-zinc-300">
-                                        <div class="date">
-                                            <FormattedDate date={pubDate} />
-                                            {
-                                                updatedDate && (
-                                                    <div class="last-updated-on">
-                                                        Last updated on{" "}
-                                                        <FormattedDate date={updatedDate} />
-                                                    </div>
-                                                )
-                                            }
-                                        </div>
-                                        <h1>{title}</h1>
-                                    </div>
+                                    <img src={heroImage} />
                                 </div>
-                                <div class="prose">
-                                    <slot />
-                                </div>
-                            ) : (
-                                <div class="prose">
-                                    <div class="title">
-                                        <div class="date">
-                                            <FormattedDate date={pubDate} />
-                                            {
-                                                updatedDate && (
-                                                    <div class="last-updated-on">
-                                                        Last updated on{" "}
-                                                        <FormattedDate date={updatedDate} />
-                                                    </div>
-                                                )
-                                            }
-                                        </div>
-                                        <h1>{title}</h1>
-                                        <hr />
-                                    </div>
-                                    <slot />
-                                </div>
-                            )
+                            ) : ("")
                         }
+                        <div class="prose">
+                            <div class="title">
+                                <div class="date">
+                                    <FormattedDate date={pubDate} />
+                                    {
+                                        updatedDate && (
+                                            <div class="last-updated-on">
+                                                Last updated on{" "}
+                                                <FormattedDate date={updatedDate} />
+                                            </div>
+                                        )
+                                    }
+                                </div>
+                                <h1>{title}</h1>
+                                <hr />
+                            </div>
+                            <slot />
+                        </div>
                     </div>
                     <TableOfContents headings={headings} title={title} />
                 </div>
