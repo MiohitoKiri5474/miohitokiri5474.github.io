@@ -16,21 +16,137 @@ function buildTOC(headings) {
             .map(([depth, num]) => num)
             .join(".");
         heading.prefix = prefix;
-        if (heading.depth === 2) {
-            toc.push(heading);
-        } else {
-            parentHeadings.get(heading.depth - 1).subheadings.push(heading);
-        }
+        toc.push(heading);
     });
+    headings = toc;
 
     return toc;
 }
 
 const { headings, title } = Astro.props;
-const toc = buildTOC(headings);
 ---
 
+<script>
+    function getHeadingDepth(heading) {
+        if (heading.tagName === 'H2') return 2;
+        if (heading.tagName === 'H3') return 3;
+        if (heading.tagName === 'H4') return 4;
+        if (heading.tagName === 'H5') return 5;
+        if (heading.tagName === 'H6') return 6;
+        return 0;
+    }
+
+    function setTocObserver() {
+        const tocLinks = document.querySelectorAll("[data-toc-link]");
+        const observerOptions = { threshold: 1, rootMargin: "-5% 0% -5% 0%" };
+        return new IntersectionObserver((entries) => {
+            const activeLinks = [];
+            var maxDepth = 2;
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const currentHeading = entry.target;
+                    for (const link of tocLinks) {
+                        const linkDepth = link.dataset.depth;
+                        const isHeadingAndTocLinkContentMatched =
+                            currentHeading.textContent ===
+                            link?.textContent?.trim();
+                        activeLinks[linkDepth] = link;
+                        maxDepth = linkDepth;
+                        if (isHeadingAndTocLinkContentMatched) {
+                            break;
+                        }
+                    };
+                    tocLinks.forEach((link) => {
+                        link.classList.remove("toc-active-link");
+                        link.classList.add("toc-link");
+                    });
+                    for (let i = 2; i <= maxDepth; i++) {
+                        console.log ( activeLinks[i].textContent );
+                        activeLinks[i].classList.add("toc-active-link");
+                        activeLinks[i].classList.remove("toc-link");
+                    }
+                }
+            });
+        }, observerOptions);
+    }
+
+    function tocInit() {
+        const avaliableHeadings = document.querySelectorAll<HTMLHeadingElement>(
+            "h2, h3, h4, h5, h6",
+        );
+        avaliableHeadings.forEach((heading) => {
+            setTocObserver().observe(heading);
+        });
+    }
+
+    function manualActiveLinkInit() {
+        const toc = document.querySelector("[data-toc]");
+        toc?.addEventListener("click", (event) => {
+            const targetLink = event.target as HTMLAnchorElement;
+            const isNotTocLink = targetLink.tagName !== "A";
+            if (isNotTocLink) return;
+            const tocLinks = document.querySelector(".toc-manual-active-link");
+            if (tocLinks) {
+                tocLinks.classList.remove("toc-manual-active-link");
+            }
+            targetLink.classList.add("toc-manual-active-link");
+            setTimeout(() => {
+                targetLink.classList.remove("toc-manual-active-link");
+            }, 1000);
+        });
+    }
+
+    tocInit();
+    manualActiveLinkInit();
+</script>
+
+<nav class="toc max-h-[80vh] overflow-y-auto hidden md:block">
+    <p class="text-zinc-500">On This Page</p>
+    <h5 class="font-bold toc-title text-orange-500">{title}</h5>
+    <ul>
+        {console.log(headings)}
+        {
+            buildTOC(headings).map(
+                ({ depth, slug: headingSlug, text, prefix }) => {
+                    const nestedHeadingClass = "text-sm px-8";
+                    const headingClass = "px-2";
+                    const depthClass = `${depth > 2 ? nestedHeadingClass : headingClass}`;
+                    return (
+                        <li class="p-0 m-0">
+                            <div class=`toc-container ${depthClass}`>
+                                {prefix}
+                                <a
+                                    data-cy="toc-link"
+                                    data-toc-link
+                                    data-depth = {depth}
+                                    class={`block no-underline transition-opacity`}
+                                    href={`#${headingSlug}`}
+                                >
+                                    {text}
+                                </a>
+                            </div>
+                        </li>
+                    );
+                },
+            )
+        }
+        <!-- {toc.map((heading) => <TableOfContentsHeading heading={heading} classList=classList />)} -->
+    </ul>
+</nav>
+
 <style>
+    .toc-link {
+        opacity: 0.6;
+        border-left: theme(borderWidth.2) solid transparent;
+    }
+    .toc-active-link {
+        opacity: 1;
+        border-left: theme(borderWidth.2) solid #F97316;
+    }
+    .toc-manual-active-link {
+        opacity: 1;
+        border-left: theme(borderWidth.2) solid #000000;
+    }
     ul {
         list-style-type: none;
         /* padding-left: 0; */
@@ -59,12 +175,15 @@ const toc = buildTOC(headings);
         margin: 0rem;
         margin-bottom: 0.5rem;
     }
+    li {
+        white-space: normal;
+        margin: 0;
+        padding: 0;
+    }
+    .toc-container {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 0.25rem;
+    }
 </style>
-
-<nav class="toc max-h-[80vh] overflow-y-auto hidden md:block">
-    <p class="text-zinc-500">On This Page</p>
-    <h5 class="font-bold toc-title text-orange-500">{title}</h5>
-    <ul>
-        {toc.map((heading) => <TableOfContentsHeading heading={heading} />)}
-    </ul>
-</nav>
