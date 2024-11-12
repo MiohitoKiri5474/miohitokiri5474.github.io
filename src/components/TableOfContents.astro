@@ -25,15 +25,6 @@ const { headings, title } = Astro.props;
 ---
 
 <script>
-    function getHeadingDepth(heading) {
-        if (heading.tagName === 'H2') return 2;
-        if (heading.tagName === 'H3') return 3;
-        if (heading.tagName === 'H4') return 4;
-        if (heading.tagName === 'H5') return 5;
-        if (heading.tagName === 'H6') return 6;
-        return 0;
-    }
-
     function setTocObserver() {
         const tocLinks = document.querySelectorAll("[data-toc-link]");
         const observerOptions = { threshold: 1, rootMargin: "-5% 0% -5% 0%" };
@@ -44,12 +35,12 @@ const { headings, title } = Astro.props;
                 if (entry.isIntersecting) {
                     const currentHeading = entry.target;
                     for (const link of tocLinks) {
-                        const linkDepth = link.dataset.depth;
+                        const linkDepth = (link as HTMLElement).dataset.depth;
                         const isHeadingAndTocLinkContentMatched =
                             currentHeading.textContent ===
                             link?.textContent?.trim();
                         activeLinks[linkDepth] = link;
-                        maxDepth = linkDepth;
+                        maxDepth = parseInt(linkDepth, 10);
                         if (isHeadingAndTocLinkContentMatched) {
                             break;
                         }
@@ -59,7 +50,6 @@ const { headings, title } = Astro.props;
                         link.classList.add("toc-link");
                     });
                     for (let i = 2; i <= maxDepth; i++) {
-                        console.log ( activeLinks[i].textContent );
                         activeLinks[i].classList.add("toc-active-link");
                         activeLinks[i].classList.remove("toc-link");
                     }
@@ -102,7 +92,6 @@ const { headings, title } = Astro.props;
     <p class="text-zinc-500">On This Page</p>
     <h5 class="font-bold toc-title text-orange-500">{title}</h5>
     <ul>
-        {console.log(headings)}
         {
             buildTOC(headings).map(
                 ({ depth, slug: headingSlug, text, prefix }) => {
