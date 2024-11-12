@@ -37,9 +37,17 @@ const { headings, title } = Astro.props;
                     for (const link of tocLinks) {
                         const linkDepth = (link as HTMLElement).dataset.depth;
                         const link_arr = link.textContent.trim().split(" ");
+                        var link_title = link_arr[link_arr.length - 1];
+                        for (let idx = link_arr.length - 2; idx >= 0; idx--) {
+                            if (link_arr[idx])
+                                link_title = link_arr[idx] + ' ' + link_title;
+                            else
+                                break;
+                        }
+                        console.log ( currentHeading.textContent, link_title );
                         const isHeadingAndTocLinkContentMatched =
                             currentHeading.textContent ===
-                            link_arr[link_arr.length - 1];
+                            link_title;
                         activeLinks[linkDepth] = link;
                         maxDepth = parseInt(linkDepth, 10);
                         if (isHeadingAndTocLinkContentMatched) {
