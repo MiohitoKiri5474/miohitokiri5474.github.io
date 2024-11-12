@@ -26,6 +26,15 @@ const { className = "" } = Astro.props;
                 </HeaderLink>
             </div>
             <div class="flex-1"></div>
+            <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script src="/pagefind/pagefind-ui.js"></script>
+<div id="search"></div>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    // 替換 #search 為你想要放置搜尋的元素
+    new PagefindUI({ element: '#search', showSubResults: true });
+  });
+</script>
             <ThemeToggle client:visible />
             <DropdownMenu client:visible />
         </nav>
