@@ -749,6 +749,31 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@pagefind/darwin-arm64@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@pagefind/darwin-arm64/-/darwin-arm64-1.2.0.tgz#e05db988a7cfa5ce9be5166a6bfb5fbaad22fa76"
+  integrity sha512-pHnPL2rm4xbe0LqV376g84hUIsVdy4PK6o2ACveo0DSGoC40eOIwPUPftnUPUinSdDWkkySaL5FT5r9hsXk0ZQ==
+
+"@pagefind/darwin-x64@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@pagefind/darwin-x64/-/darwin-x64-1.2.0.tgz#012ac8b9efc2dbf9f73f4fac32eae2ddcced17c6"
+  integrity sha512-q2tcnfvcRyx0GnrJoUQJ5bRpiFNtI8DZWM6a4/k8sNJxm2dbM1BnY5hUeo4MbDfpb64Qc1wRMcvBUSOaMKBjfg==
+
+"@pagefind/linux-arm64@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@pagefind/linux-arm64/-/linux-arm64-1.2.0.tgz#621275cce2c6d53ed1e8defbf9318a61db02bfb0"
+  integrity sha512-wVtLOlF9AUrwLovP9ZSEKOYnwIVrrxId4I2Mz02Zxm3wbUIJyx8wHf6LyEf7W7mJ6rEjW5jtavKAbngKCAaicg==
+
+"@pagefind/linux-x64@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@pagefind/linux-x64/-/linux-x64-1.2.0.tgz#14e0e70dfdfaf1f46add8c1fe057016d5b6d6dc2"
+  integrity sha512-Lo5aO2bA++sQTeEWzK5WKr3KU0yzVH5OnTY88apZfkgL4AVfXckH2mrOU8ouYKCLNPseIYTLFEdj0V5xjHQSwQ==
+
+"@pagefind/windows-x64@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@pagefind/windows-x64/-/windows-x64-1.2.0.tgz#67ace011910acaa9feaa533ac7c7856815b27014"
+  integrity sha512-tGQcwQAb5Ndv7woc7lhH9iAdxOnTNsgCz8sEBbsASPB2A0uI8BWBmVdf2GFLQkYHqnnqYuun63sa+UOzB7Ah3g==
+
 "@pkgjs/parseargs@^0.11.0":
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/@pkgjs/parseargs/-/parseargs-0.11.0.tgz#a77ea742fab25775145434eb1d2328cf5013ac33"
@@ -3170,6 +3195,17 @@ package-json-from-dist@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/package-json-from-dist/-/package-json-from-dist-1.0.0.tgz#e501cd3094b278495eb4258d4c9f6d5ac3019f00"
   integrity sha512-dATvCeZN/8wQsGywez1mzHtTlP22H8OEfPrVMLNr4/eGa+ijtLn/6M5f0dY8UKNrC2O9UCU6SSoG3qRKnt7STw==
+
+pagefind@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/pagefind/-/pagefind-1.2.0.tgz#990fa9e037f0ba73fca530bee9a4b886554f338b"
+  integrity sha512-sFVv5/x73qCp9KlLHv8/uWDv7rG1tsWcG9MuXc5YTrXIrb8c1Gshm9oc5rMLXNZILXUWai8WczqaK4jjroEzng==
+  optionalDependencies:
+    "@pagefind/darwin-arm64" "1.2.0"
+    "@pagefind/darwin-x64" "1.2.0"
+    "@pagefind/linux-arm64" "1.2.0"
+    "@pagefind/linux-x64" "1.2.0"
+    "@pagefind/windows-x64" "1.2.0"
 
 parse-latin@^7.0.0:
   version "7.0.0"
