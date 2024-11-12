@@ -1,0 +1,44 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Body from "../components/Body.astro";
+import Pagefind from "../components/Pagefind.astro";
+import Footer from "../components/Footer.astro";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            body {
+                overflow: auto;
+            }
+            footer {
+                text-align: left;
+            }
+        </style>
+        <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+        <script src="/pagefind/pagefind-ui.js" is:inline></script>
+    </head>
+    <Body>
+        <Header />
+        <main class="pt-[56px]">
+            <section class="items-center">
+                <div
+                    class="x-10 px-8 drop-shadow-lg shadow-black text-zinc-300"
+                >
+                    <section>
+                        <h1 class="text-3xl text-center mt-12 mb-8">
+                            Want to find something?
+                        </h1>
+                        <Pagefind placeholderText="Meow?" />
+                    </section>
+                    <Footer />
+                </div>
+            </section>
+        </main>
+    </Body>
+</html>
