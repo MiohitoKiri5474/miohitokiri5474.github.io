@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import Content from "../components/Content.astro";
 import FormattedDate from "../components/FormattedDate.astro";
 import TableOfContents from "../components/TableOfContents.astro";
+import Comment from "../components/Comment.astro";
 import "/node_modules/katex/dist/katex.min.css";
 
 import "../styles/BlogPost.css"
@@ -102,6 +103,7 @@ const { title, description, pubDate, updatedDate, heroImage = '' } = Astro.props
                                 <hr />
                             </div>
                             <slot />
+                            <Comment />
                         </div>
                     </div>
                     <TableOfContents headings={headings} title={title} />
