@@ -6,6 +6,7 @@ import Footer from "../../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
+import GoogleAnalytics
 
 const posts = (await getCollection("game")).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
@@ -132,6 +133,7 @@ const posts = (await getCollection("game")).sort(
 
             </style>
     </head>
+    <GoogleAnalytics />
     <Body>
         <Header />
         <main>

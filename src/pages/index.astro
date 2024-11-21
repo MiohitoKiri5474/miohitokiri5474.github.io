@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Body from "../components/Body.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 const today = new Date();
 ---
@@ -20,6 +21,7 @@ const today = new Date();
             }
         </style>
     </head>
+    <GoogleAnalytics />
     <Body>
         <Header className="text-zinc-300" />
         <main>
