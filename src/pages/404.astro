@@ -3,6 +3,7 @@ import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import Body from "../components/Body.astro";
 import { IoChevronForward } from "react-icons/io5";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
 
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
@@ -22,6 +23,7 @@ const today = new Date();
             }
         </style>
     </head>
+    <GoogleAnalytics id="G-5PX5VJYPVK"/>
     <Body>
         <Header />
         <main class="pt-[56px]">
