@@ -21,12 +21,15 @@ const { className = "" } = Astro.props;
                 <HeaderLink href="/">Home</HeaderLink>
                 <BlogSelect className={className} client:visible />
                 <HeaderLink href="/about">About</HeaderLink>
+                <HeaderLink href="/uses">Uses</HeaderLink>
                 <HeaderLink href="https://github.com/MiohitoKiri5474">
                     <IoLogoGithub />Github
                 </HeaderLink>
             </div>
             <div class="flex-1"></div>
-            <HeaderLink href="/search" class="text-3xl"><IoSearchSharp /></HeaderLink>
+            <HeaderLink href="/search" class="text-3xl">
+                <IoSearchSharp />
+            </HeaderLink>
             <ThemeToggle client:visible />
             <DropdownMenu client:visible />
         </nav>
