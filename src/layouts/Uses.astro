@@ -25,18 +25,13 @@ const { title, description, heroImage = "" } = Astro.props["data"];
             <Content>
                 <div class="container">
                     <div>
-                        {
-                            heroImage ? (
-                                <div class="hero-image">
-                                    <img src={heroImage} />
-                                </div>
-                            ) : (
-                                ""
-                            )
-                        }
+                        <div class="hero-image">
+                            <img src={heroImage} />
+                        </div>
                         <div class="prose">
                             <div class="title">
                                 <h1>{title}</h1>
+                                <p>{description}</p>
                                 <hr />
                             </div>
                             <slot />
