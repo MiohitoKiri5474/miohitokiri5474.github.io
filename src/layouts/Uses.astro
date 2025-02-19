@@ -1,0 +1,50 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Body from "../components/Body.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Content from "../components/Content.astro";
+import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import "/node_modules/katex/dist/katex.min.css";
+
+import "../styles/Uses.css";
+
+const { title, description, heroImage = "" } = Astro.props["data"];
+---
+
+<html lang="en">
+    <head>
+        <BaseHead title={title} description={description} image={heroImage} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+    </head>
+    <GoogleAnalytics id="G-5PX5VJYPVK" />
+
+    <Body>
+        <Header />
+        <main class="pt-[80px]">
+            <Content>
+                <div class="container">
+                    <div>
+                        {
+                            heroImage ? (
+                                <div class="hero-image">
+                                    <img src={heroImage} />
+                                </div>
+                            ) : (
+                                ""
+                            )
+                        }
+                        <div class="prose">
+                            <div class="title">
+                                <h1>{title}</h1>
+                                <hr />
+                            </div>
+                            <slot />
+                        </div>
+                    </div>
+                </div>
+            </Content>
+        </main>
+        <Footer />
+    </Body>
+</html>

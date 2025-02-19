@@ -1,0 +1,188 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Body from "../../components/Body.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
+
+const posts = (await getCollection("uses")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+        <style>
+            main {
+                margin: 0 auto;
+            }
+            ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+            }
+            ul li {
+                width: calc(50% - 1rem);
+                height: auto;
+                display: grid;
+            }
+            ul li * {
+                width: 336;
+                height: 250;
+                text-decoration: none;
+                transition: 0.2s ease;
+            }
+            ul li:first-child {
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+                text-align: center;
+            }
+            ul li:first-child img {
+                width: auto;
+                max-height: 500px;
+            }
+            ul li:first-child .title {
+                font-size: 2.369rem;
+            }
+            ul li img {
+                margin-bottom: 0.5rem;
+            }
+            ul li a {
+                display: block;
+            }
+            .title {
+                margin: 0;
+                line-height: 1;
+            }
+            .date {
+                margin: 0;
+            }
+            ul li a:hover h4,
+            ul a:hover img {
+                box-shadow: var(--box-shadow);
+            }
+            @media (max-width: 720px) {
+                ul {
+                    gap: 0.5em;
+                }
+                ul li {
+                    width: 100%;
+                    text-align: center;
+                }
+                ul li:first-child {
+                    margin-bottom: 0;
+                }
+                ul li:first-child .title {
+                    font-size: 1.563em;
+                }
+                .list-item {
+                    width: 100%;
+                }
+            }
+
+            .bg-blur {
+                background: rgba (0, 0, 0, 0.5);
+                backdrop-filter: blur(5px);
+                -webkit-backdrop-filter: blur(5px);
+                padding: 2em;
+                border-radius: 0.5em;
+            }
+
+            .list-item {
+                width: calc(50% - 1rem);
+                display: grid;
+                grid-template-rows: 80% 20%;
+                height: 350px;
+                text-align: center;
+            }
+
+            .image-container {
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                overflow: hidden;
+            }
+
+            .image-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                border-radius: 12px;
+            }
+
+            .text-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center; /* Center the text vertically in the 20% section */
+                padding: 10px;
+            }
+
+            li {
+                white-space: normal;
+            }
+        </style>
+    </head>
+    <GoogleAnalytics id="G-5PX5VJYPVK" />
+    <Body>
+        <Header />
+        <main>
+            <section
+                class="relative mb-6 h-80 flex justify-center items-center"
+            >
+                <div class="absolute w-full h-full overflow-hidden">
+                    <img
+                        class="absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
+                        src="/masthead.jpg"
+                    />
+                </div>
+                <div
+                    class="x-10 px-8 drop-shadow-lg shadow-black text-center bg-blur"
+                >
+                    <div class="text-4xl font-mplus font-medium text-zinc-200">
+                        Blog Post <br /> Coding & Techs
+                    </div>
+                </div>
+            </section>
+
+            <article class="px-8 mx-auto max-w-3xl">
+                <section>
+                    <ul>
+                        {
+                            posts.map((post) => (
+                                <li class="list-item">
+                                    <a href={`/uses/${post.slug}/`}>
+                                        <div class="image-container">
+                                            <img
+                                                src={
+                                                    post.data.heroImage
+                                                        ? post.data.heroImage
+                                                        : "/code-default.jpg"
+                                                }
+                                                alt=""
+                                            />
+                                        </div>
+                                        <div class="text-container">
+                                            <h4 class="title">
+                                                {post.data.title}
+                                            </h4>
+                                        </div>
+                                    </a>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </section>
+            </article>
+        </main>
+        <Footer />
+    </Body>
+</html>

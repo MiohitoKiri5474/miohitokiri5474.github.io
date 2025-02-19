@@ -1,0 +1,68 @@
+main {
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+iframe {
+  height: auto;
+  max-width: 500px;
+}
+.hero-image {
+  width: 100%;
+  position: relative;
+}
+.hero-image img {
+  width: 90%;
+  /* max-width: min(100%, 720px); */
+  max-height: clac(90% * 16 / 9);
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow);
+}
+.prose {
+  height: auto;
+  width: 100%;
+}
+.title {
+  width: 100%;
+  margin: 1em 0 0 0;
+  /* padding: 1em 0; */
+  text-align: center;
+  line-height: 1;
+}
+.title h1 {
+  margin: 0 0 0.5em 0;
+}
+.date {
+  margin-bottom: 0.5em;
+}
+.last-updated-on {
+  font-style: italic;
+}
+.container {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  gap: 1em;
+}
+.relative.code-block {
+  width: 100%;
+  overflow-x: auto;
+}
+@media (max-width: 500px) {
+  .container {
+    display: block;
+    /* max-width: 100%; */
+  }
+  .astro-code.github-dark {
+    max-width: 300px;
+    overflow-x: auto;
+
+    margin: auto;
+  }
+  /* .hero-image img { */
+  /*   display: none; */
+  /* } */
+}

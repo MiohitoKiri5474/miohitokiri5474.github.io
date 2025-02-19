@@ -12,8 +12,18 @@ const blog = defineCollection({
   }),
 });
 
+const usesCollection = defineCollection({
+  type: "content",
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    heroImage: z.string(),
+  }),
+});
+
 export const collections = {
   game: blog,
   code: blog,
+  uses: usesCollection,
   blog,
 };
