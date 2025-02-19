@@ -2,6 +2,7 @@
 title: "Mio's M4 Mac mini Environment Build"
 pubDate: 2025-01-20 20:00:00
 heroImage: "https://cdn.thewirecutter.com/wp-content/media/2024/04/mechanicalkeyboards-2048px-1353-2x1-1.jpg?width=2048&quality=75&crop=2:1&auto=webp"
+draft: true
 ---
 
 ## Why M4 Mac mini
@@ -50,6 +51,7 @@ HomeBrew 主要的套件安裝方式有兩種，分別為 `formula` 和 `bottle`
 
 再來是下載一個比較好用——不對是好用很多——的 terminal emulator，畢竟內建 Terminal 真的太難用了嘔嘔嘔
 選擇還蠻多的，比較主要的有
+
 1. iTerm2
 2. Alacritty
 3. WezTerm
@@ -59,6 +61,7 @@ HomeBrew 主要的套件安裝方式有兩種，分別為 `formula` 和 `bottle`
 而且通常我的 iTerm2 都是掛在背景的，啟動速度對我來說不是一個很大的誘因
 
 用 brew 安裝就好
+
 ```sh
 brew install --cask iterm2
 ```

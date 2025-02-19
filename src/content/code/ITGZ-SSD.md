@@ -4,6 +4,7 @@ pubDate: 2024-05-14 19:38:18
 heroImage: "https://cdn.thewirecutter.com/wp-content/media/2024/04/mechanicalkeyboards-2048px-1353-2x1-1.jpg?width=2048&quality=75&crop=2:1&auto=webp"
 tags:
   - SSD
+draft: true
 ---
 
 ## 為什麼不升級 SSD 容量
