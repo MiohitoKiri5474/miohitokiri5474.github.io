@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 
 const posts = (await getCollection("uses")).sort(
-    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+    (a, b) => b.data.title.valueOf() - a.data.title.valueOf(),
 );
 ---
 
@@ -38,19 +38,6 @@ const posts = (await getCollection("uses")).sort(
                 height: 250;
                 text-decoration: none;
                 transition: 0.2s ease;
-            }
-            ul li:first-child {
-                width: 100%;
-                height: auto;
-                margin-bottom: 1rem;
-                text-align: center;
-            }
-            ul li:first-child img {
-                width: auto;
-                max-height: 500px;
-            }
-            ul li:first-child .title {
-                font-size: 2.369rem;
             }
             ul li img {
                 margin-bottom: 0.5rem;
@@ -148,7 +135,7 @@ const posts = (await getCollection("uses")).sort(
                     class="x-10 px-8 drop-shadow-lg shadow-black text-center bg-blur"
                 >
                     <div class="text-4xl font-mplus font-medium text-zinc-200">
-                        Blog Post <br /> Coding & Techs
+                        What I use
                     </div>
                 </div>
             </section>
