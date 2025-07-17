@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import MessageList from "./MessageList.jsx";
-import MessageInput from "./MessageInput.jsx";
+import MessageList from "./MessageList.tsx";
+import MessageInput from "./MessageInput.tsx";
 import "../../styles/bubbles.css";
 
 const App = () => {
