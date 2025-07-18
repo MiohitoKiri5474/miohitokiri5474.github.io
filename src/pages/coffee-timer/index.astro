@@ -1,0 +1,23 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Body from "../../components/Body.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import CoffeeTimerContainer from "../../components/CoffeeTimerContainer.tsx";
+---
+
+
+<html lang="en">
+    <head>
+        <BaseHead
+            title="Floating Message Bubbles"
+            description="A chat-like interface with floating bubbles."
+        />
+    </head>
+    <Body>
+        <Header />
+        <CoffeeTimerContainer client:only="react" />
+        <Footer />
+    </Body>
+</html>
+
