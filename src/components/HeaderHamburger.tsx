@@ -76,6 +76,19 @@ export default function DropdownMenu() {
             <Menu.Item>
               {({ active }) => (
                 <a
+                  href="/coffee-timer"
+                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
+                    active ? "bg-orange-200 dark:bg-zinc-700" : ""
+                  }`}
+                >
+                  Timer
+                </a>
+              )}
+            </Menu.Item>
+
+            <Menu.Item>
+              {({ active }) => (
+                <a
                   href="/bubbles"
                   className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
