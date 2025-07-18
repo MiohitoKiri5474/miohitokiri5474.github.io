@@ -59,6 +59,7 @@ const CoffeeTimerContainer: React.FC = () => {
               gap: 2em;
               padding-top: 80px;
               margin: 0 auto;
+              max-height: calc(100vh - 80px);
           }
           .main-content {
               flex-grow: 1;
@@ -69,7 +70,7 @@ const CoffeeTimerContainer: React.FC = () => {
           .right-column {
               flex-shrink: 0;
               overflow-y: auto; /* Make the right column scrollable */
-              max-height: calc(100vh - 160px); /* Adjust height as needed */
+              max-height: calc(100vh - 260px); /* Adjust height as needed */
               scrollbar-width: none; /* For Firefox */
               -ms-overflow-style: none;  /* For Internet Explorer and Edge */
           }
