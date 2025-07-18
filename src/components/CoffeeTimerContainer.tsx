@@ -16,7 +16,9 @@ const CoffeeTimerContainer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [currentBlock, setCurrentBlock] = useState<Block | null>(null);
-  const [blocks, setBlocks] = useState<Block[]>(prebuiltRecipes["James Hoffmann - A Better 1 Cup V60"]);
+  const [blocks, setBlocks] = useState<Block[]>(
+    prebuiltRecipes["James Hoffmann - A Better 1 Cup V60"].blocks,
+  );
 
   const handleTimerUpdate = useCallback((time: number, isRunning: boolean) => {
     setCurrentTime(time);
@@ -26,7 +28,7 @@ const CoffeeTimerContainer: React.FC = () => {
   useEffect(() => {
     if (isTimerRunning) {
       let accumulatedTime = 0;
-      let foundBlock: Block | null = null;
+      let foundBlock: Block = blocks[blocks.length - 1];
 
       for (let i = 0; i < blocks.length; i++) {
         const block = blocks[i];

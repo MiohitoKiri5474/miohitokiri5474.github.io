@@ -10,37 +10,55 @@ interface Block {
   step?: string;
 }
 
-const defaultBlocks: Block[] = [
-  { id: "block-1", step: "Blooming", time: 45, water: 50, notice: "Blooming" },
-  { id: "block-2", step: "Pour Block 1", time: 45, water: 70 },
-  { id: "block-3", step: "Pour Block 2", time: 45, water: 80 },
-];
+interface Recipe {
+  blocks: Block[];
+  notice?: string;
+}
 
-const JamesHoffmannV60: Block[] = [
-  {
-    id: "block-a",
-    step: "Bloom",
-    time: 45,
-    water: 50,
-    notice: "Gently Swirl at 00:10",
-  },
-  { id: "block-b", step: "1st Pour", time: 15, water: 50 },
-  { id: "block-c", step: "Pause", time: 10, water: 0 },
-  { id: "block-d", step: "2nd Pour", time: 10, water: 50 },
-  { id: "block-e", step: "Pause", time: 10, water: 0 },
-  { id: "block-f", step: "3rd Pour", time: 10, water: 50 },
-  { id: "block-g", step: "Pause", time: 10, water: 0 },
-  {
-    id: "block-h",
-    step: "4th Pour",
-    time: 10,
-    water: 50,
-    notice: "Gently Swirl after last pour",
-  },
-];
+const JamesHoffmannV60: Recipe = {
+  blocks: [
+    {
+      id: "block-a",
+      step: "Bloom",
+      time: 45,
+      water: 50,
+      notice: "Gently swirl at 00:10.",
+    },
+    { id: "block-b", step: "1st Pour", time: 15, water: 50 },
+    { id: "block-c", step: "Pause", time: 10, water: 0 },
+    { id: "block-d", step: "2nd Pour", time: 10, water: 50 },
+    { id: "block-e", step: "Pause", time: 10, water: 0 },
+    { id: "block-f", step: "3rd Pour", time: 10, water: 50 },
+    { id: "block-g", step: "Pause", time: 10, water: 0 },
+    {
+      id: "block-h",
+      step: "4th Pour",
+      time: 1,
+      water: 50,
+      notice: "Gently swirl after last pour.",
+    },
+  ],
+  notice: "15g beans w/ 250g water",
+};
 
-export const prebuiltRecipes: { [key: string]: Block[] } = {
+const KurasuKyotoV60: Recipe = {
+  blocks: [
+    {
+      id: "block-a",
+      step: "Bloom",
+      time: 30,
+      water: 30,
+      notice: "Gently stir with a spoon right after pouring.",
+    },
+    { id: "block-b", step: "1st Pour", time: 30, water: 70 },
+    { id: "block-c", step: "2nd Pour", time: 1, water: 100 },
+  ],
+  notice: "13g beans w/ 200g water (91℃)",
+};
+
+export const prebuiltRecipes: { [key: string]: Recipe } = {
   "James Hoffmann - A Better 1 Cup V60": JamesHoffmannV60,
+  "Kurasu Kyoto - V60": KurasuKyotoV60,
 };
 
 interface ExtractionBlocksProps {
@@ -64,7 +82,7 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
   // Effect to detect custom modifications
   useEffect(() => {
     if (selectedRecipe !== "Custom") {
-      const currentRecipeBlocks = prebuiltRecipes[selectedRecipe];
+      const currentRecipeBlocks = prebuiltRecipes[selectedRecipe].blocks;
       // Simple deep comparison for demonstration. A more robust comparison might be needed.
       const isModified =
         JSON.stringify(blocks) !== JSON.stringify(currentRecipeBlocks);
@@ -114,7 +132,7 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
     const newRecipeName = event.target.value;
     setSelectedRecipe(newRecipeName);
     if (newRecipeName !== "Custom") {
-      setBlocks(prebuiltRecipes[newRecipeName]);
+      setBlocks(prebuiltRecipes[newRecipeName].blocks);
     }
   };
 
@@ -150,6 +168,28 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
           <option value="Custom">Custom</option>
         </select>
       </div>
+
+      {selectedRecipe !== "Custom" ? (
+        <div
+          style={{
+            position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            gap: "1em",
+            marginBottom: "1.5em",
+            padding: "1.5em",
+            border: "1px solid #ccc",
+            borderRadius: "8px",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+            textAlign: "center",
+          }}
+          className="bg-slate-400 dark:bg-slate-500"
+        >
+          {prebuiltRecipes[selectedRecipe].notice}
+        </div>
+      ) : (
+        ""
+      )}
 
       <DragDropContext onDragEnd={onDragEnd}>
         <Droppable droppableId="blocks">
