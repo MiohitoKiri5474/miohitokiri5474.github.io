@@ -3,7 +3,7 @@ import BaseHead from "../../components/BaseHead.astro";
 import Body from "../../components/Body.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import App from "../../components/bubbles/FloatingMessageBubbles.tsx";
+import FloatingMessageBubbles from "../../components/bubbles/FloatingMessageBubbles.tsx";
 ---
 
 <html lang="en">
@@ -58,7 +58,7 @@ import App from "../../components/bubbles/FloatingMessageBubbles.tsx";
         <Header />
         <main class="container">
             <div class="main-content">
-                <App client:only="react" />
+                <FloatingMessageBubbles client:only="react" />
             </div>
             <aside class="right-column">
                 <h2>Floating Message Bubbles</h2>
