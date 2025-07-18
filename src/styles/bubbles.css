@@ -9,7 +9,7 @@ body {
 .app {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: calc(100vh - 160px); /* 80px for header, 80px for padding */
   background-color: #0a9a38;
 }
 

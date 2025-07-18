@@ -1,5 +1,73 @@
 ---
+import BaseHead from "../../components/BaseHead.astro";
+import Body from "../../components/Body.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
 import App from "../../components/bubbles/App.tsx";
 ---
 
-<App client:only="react" />
+<html lang="en">
+    <head>
+        <BaseHead
+            title="Floating Message Bubbles"
+            description="A chat-like interface with floating bubbles."
+        />
+        <style>
+            .container {
+                display: flex;
+                gap: 2em;
+                padding-top: 80px;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+            .main-content {
+                flex-grow: 1;
+            }
+            .right-column {
+                width: 250px;
+                flex-shrink: 0;
+                padding-top: 1em;
+            }
+            .right-column h2 {
+                font-size: 1.5em;
+                margin-bottom: 1em;
+                border-bottom: 1px solid var(--gray-light);
+                padding-bottom: 0.5em;
+            }
+            .right-column p {
+                margin-bottom: 1.5em;
+            }
+            .home-link {
+                display: inline-block;
+                padding: 0.5em 1em;
+                background-color: var(--theme-btn-bg);
+                color: var(--theme-btn-color);
+                border-radius: 8px;
+                text-decoration: none;
+                transition: opacity 0.2s;
+            }
+            .home-link:hover {
+                opacity: 0.8;
+            }
+        </style>
+    </head>
+
+    <Body>
+        <Header />
+        <main class="container">
+            <div class="main-content">
+                <App client:only="react" />
+            </div>
+            <aside class="right-column">
+                <h2>Floating Message Bubbles</h2>
+                <p>
+                    <!-- I will fill this in later -->
+                </p>
+                <a href="/" class="home-link">Back to Home</a>
+            </aside>
+        </main>
+        <Footer />
+    </Body>
+</html>
