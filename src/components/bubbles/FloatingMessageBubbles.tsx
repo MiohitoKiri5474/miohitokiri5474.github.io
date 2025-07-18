@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import MessageList from "./MessageList.tsx";
 import MessageInput from "./MessageInput.tsx";
 import "../../styles/bubbles.css";
 
-const App = () => {
+const FloatingMessageBubbles = () => {
   const [messages, setMessages] = useState([]);
   const [typingText, setTypingText] = useState(""); // New state for typing indicator
 
@@ -50,4 +50,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default FloatingMessageBubbles;
