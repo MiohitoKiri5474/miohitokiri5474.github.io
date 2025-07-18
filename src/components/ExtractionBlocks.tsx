@@ -24,18 +24,33 @@ const JamesHoffmannV60: Recipe = {
       water: 50,
       notice: "Gently swirl at 00:10.",
     },
-    { id: "block-b", step: "1st Pour", time: 15, water: 50 },
-    { id: "block-c", step: "Pause", time: 10, water: 0 },
-    { id: "block-d", step: "2nd Pour", time: 10, water: 50 },
-    { id: "block-e", step: "Pause", time: 10, water: 0 },
-    { id: "block-f", step: "3rd Pour", time: 10, water: 50 },
-    { id: "block-g", step: "Pause", time: 10, water: 0 },
+    {
+      id: "block-b",
+      step: "2nd Pour",
+      time: 25,
+      water: 50,
+      notice: "Stable and average pouring water in the first 15s then rest.",
+    },
+    {
+      id: "block-d",
+      step: "3rd Pour",
+      time: 20,
+      water: 50,
+      notice: "Stable and average pouring water in the first 10s then rest.",
+    },
+    {
+      id: "block-f",
+      step: "4nd Pour",
+      time: 20,
+      water: 50,
+      notice: "Stable and average pouring water in the first 10s then rest.",
+    },
     {
       id: "block-h",
-      step: "4th Pour",
-      time: 1,
+      step: "5th Pour",
+      time: 0,
       water: 50,
-      notice: "Gently swirl after last pour.",
+      notice: "Stable pouring water in the first 10s then gentaly swirl",
     },
   ],
   notice: "15g beans w/ 250g water",
@@ -50,15 +65,74 @@ const KurasuKyotoV60: Recipe = {
       water: 30,
       notice: "Gently stir with a spoon right after pouring.",
     },
-    { id: "block-b", step: "1st Pour", time: 30, water: 70 },
-    { id: "block-c", step: "2nd Pour", time: 1, water: 100 },
+    { id: "block-b", step: "2nd Pour", time: 30, water: 70 },
+    {
+      id: "block-c",
+      step: "3rd Pour",
+      time: 0,
+      water: 100,
+      notice:
+        "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
+    },
   ],
-  notice: "13g beans w/ 200g water (91℃)",
+  notice: "13g beans w/ 200g water",
+};
+
+const KurasuKyotoV60Iced: Recipe = {
+  blocks: [
+    {
+      id: "block-a",
+      step: "Bloom",
+      time: 30,
+      water: 30,
+      notice: "Gently stir with a spoon right after pouring.",
+    },
+    { id: "block-b", step: "2nd Pour", time: 30, water: 60 },
+    {
+      id: "block-c",
+      step: "3rd Pour",
+      time: 0,
+      water: 60,
+      notice:
+        "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
+    },
+  ],
+  notice: "15g beans w/ 75g ice and 150g water",
+};
+
+const KurasuKyotoV60LightBasicRecipe: Recipe = {
+  blocks: [
+    {
+      id: "block-a",
+      step: "Bloom",
+      time: 40,
+      water: 40,
+      notice: "Gently stir with a spoon right after pouring.",
+    },
+    { id: "block-b", step: "2nd Pour", time: 30, water: 60 },
+    {
+      id: "block-c",
+      step: "3rd Pour",
+      time: 30,
+      water: 50,
+      notice: "Pour move gentaly compared to 2nd pour.",
+    },
+    {
+      id: "block-d",
+      step: "4th Pour",
+      time: 0,
+      water: 50,
+      notice: "Give it a final stir with a tea spoon after pouring.",
+    },
+  ],
+  notice: "14g beans w/ 200g water (91℃)",
 };
 
 export const prebuiltRecipes: { [key: string]: Recipe } = {
   "James Hoffmann - A Better 1 Cup V60": JamesHoffmannV60,
   "Kurasu Kyoto - V60": KurasuKyotoV60,
+  "Kurasu Kyoto - V60 Iced": KurasuKyotoV60Iced,
+  "Kurasu Kyoto - V60 Light Roast": KurasuKyotoV60LightBasicRecipe,
 };
 
 interface ExtractionBlocksProps {
