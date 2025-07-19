@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import Timer from "./Timer";
 import Calculator from "./Calculator";
 import CurrentExtractionStep from "./CurrentExtractionStep";
+import NextExtractionStep from "./NextExtractionStep";
 import ExtractionBlocks, { prebuiltRecipes } from "./ExtractionBlocks";
 
 interface Block {
@@ -16,6 +17,9 @@ const CoffeeTimerContainer: React.FC = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [currentBlock, setCurrentBlock] = useState<Block | null>(null);
+  const [nextBlock, setNextBlock] = useState<Block | null>(null);
+  const [accumulatedWater, setAccumulatedWater] = useState(0);
+  const [nextAccumulatedWater, setNextAccumulatedWater] = useState(0);
   const [blocks, setBlocks] = useState<Block[]>(
     prebuiltRecipes["James Hoffmann - A Better 1 Cup V60"].blocks,
   );
@@ -28,7 +32,9 @@ const CoffeeTimerContainer: React.FC = () => {
   useEffect(() => {
     if (isTimerRunning) {
       let accumulatedTime = 0;
-      let foundBlock: Block = blocks[blocks.length - 1];
+      let water = 0;
+      let foundBlock: Block | null = null;
+      let foundNextBlock: Block | null = null;
 
       for (let i = 0; i < blocks.length; i++) {
         const block = blocks[i];
@@ -39,18 +45,32 @@ const CoffeeTimerContainer: React.FC = () => {
           currentTime < accumulatedTime + blockDuration
         ) {
           foundBlock = block;
+          water += block.water;
+          if (i + 1 < blocks.length) {
+            foundNextBlock = blocks[i + 1];
+            setNextAccumulatedWater(water + blocks[i + 1].water);
+          } else {
+            setNextAccumulatedWater(0);
+          }
           break;
         }
+        water += block.water;
         accumulatedTime += blockDuration;
       }
+
       setCurrentBlock(foundBlock);
+      setNextBlock(foundNextBlock);
+      setAccumulatedWater(water);
     } else {
       setCurrentBlock(null);
+      setNextBlock(null);
+      setAccumulatedWater(0);
+      setNextAccumulatedWater(0);
     }
   }, [currentTime, isTimerRunning, blocks]);
 
   return (
-    <>
+    <div>
       <style>
         {`
           .container {
@@ -103,7 +123,20 @@ const CoffeeTimerContainer: React.FC = () => {
             className="bg-slate-200 dark:bg-slate-800"
           >
             {isTimerRunning && currentBlock ? (
-              <CurrentExtractionStep block={currentBlock} />
+              <div style={{ display: "flex", width: "100%" }}>
+                <div style={{ flex: "60%" }}>
+                  <CurrentExtractionStep
+                    block={currentBlock}
+                    accumulatedWater={accumulatedWater}
+                  />
+                </div>
+                <div style={{ flex: "40%", borderLeft: "1px solid #ccc" }}>
+                  <NextExtractionStep
+                    block={nextBlock}
+                    accumulatedWater={nextAccumulatedWater}
+                  />
+                </div>
+              </div>
             ) : (
               <Calculator />
             )}
@@ -114,7 +147,7 @@ const CoffeeTimerContainer: React.FC = () => {
           <ExtractionBlocks blocks={blocks} setBlocks={setBlocks} />
         </div>
       </main>
-    </>
+    </div>
   );
 };
 
