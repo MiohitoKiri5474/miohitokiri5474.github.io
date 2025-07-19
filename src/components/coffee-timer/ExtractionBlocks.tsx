@@ -84,7 +84,7 @@ const KurasuKyotoV60Iced: Recipe = {
       id: "block-a",
       step: "Bloom",
       time: 30,
-      water: 30,
+      water: 40,
       notice: "Gently stir with a spoon right after pouring.",
     },
     { id: "block-b", step: "2nd Pour", time: 30, water: 60 },
@@ -92,12 +92,12 @@ const KurasuKyotoV60Iced: Recipe = {
       id: "block-c",
       step: "3rd Pour",
       time: 0,
-      water: 60,
+      water: 50,
       notice:
         "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
     },
   ],
-  notice: "15g beans w/ 75g ice and 150g water",
+  notice: "16g beans w/ 75g ice and 150g water",
 };
 
 const KurasuKyotoV60LightBasicRecipe: Recipe = {
