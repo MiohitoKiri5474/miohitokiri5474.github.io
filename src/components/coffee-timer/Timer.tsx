@@ -47,7 +47,9 @@ const Timer: React.FC<TimerProps> = ({ onTimerUpdate }) => {
 
     return `${minutes.toString().padStart(2, "0")}:${seconds
       .toString()
-      .padStart(2, "0")}.${milliseconds.toString().padStart(3, "0")}`;
+      .padStart(2, "0")}.${Math.floor(milliseconds / 10)
+      .toString()
+      .padStart(2, "0")}`;
   };
 
   return (

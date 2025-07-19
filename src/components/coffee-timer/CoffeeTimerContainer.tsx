@@ -91,11 +91,23 @@ const CoffeeTimerContainer: React.FC = () => {
       </style>
       <main className="container">
         <div className="main-content">
-          {isTimerRunning && currentBlock ? (
-            <CurrentExtractionStep block={currentBlock} />
-          ) : (
-            <Calculator />
-          )}
+          <div
+            style={{
+              minHeight: "200px",
+              maxHeight: "200px",
+              borderRadius: "8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+            className="bg-slate-200 dark:bg-slate-800"
+          >
+            {isTimerRunning && currentBlock ? (
+              <CurrentExtractionStep block={currentBlock} />
+            ) : (
+              <Calculator />
+            )}
+          </div>
           <Timer onTimerUpdate={handleTimerUpdate} />
         </div>
         <div className="right-column">

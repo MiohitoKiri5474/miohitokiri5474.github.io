@@ -217,7 +217,6 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
   return (
     <div
       style={{
-        marginTop: "2em",
         padding: "1em",
         borderRadius: "8px",
       }}

@@ -29,11 +29,9 @@ const Calculator = () => {
   return (
     <div
       style={{
-        marginTop: "2em",
         padding: "1em",
         borderRadius: "8px",
       }}
-      className="bg-slate-200 dark:bg-slate-800"
     >
       <h1 style={{ textAlign: "center" }}>Coffee Calculator</h1>
       <div
