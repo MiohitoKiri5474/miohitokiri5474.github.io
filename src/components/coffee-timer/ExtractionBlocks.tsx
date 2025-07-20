@@ -97,7 +97,7 @@ const KurasuKyotoV60Iced: Recipe = {
         "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
     },
   ],
-  notice: "16g beans w/ 75g ice and 150g water",
+  notice: "16g beans w/ 70g ice and 150g water (91℃)",
 };
 
 const KurasuKyotoV60LightBasicRecipe: Recipe = {
