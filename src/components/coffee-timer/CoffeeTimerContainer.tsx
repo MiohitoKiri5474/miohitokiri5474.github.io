@@ -33,7 +33,7 @@ const CoffeeTimerContainer: React.FC = () => {
     if (isTimerRunning) {
       let accumulatedTime = 0;
       let water = 0;
-      let foundBlock: Block | null = null;
+      let foundBlock: Block = blocks[blocks.length - 1];
       let foundNextBlock: Block | null = null;
 
       for (let i = 0; i < blocks.length; i++) {
