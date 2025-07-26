@@ -20,6 +20,7 @@ const CoffeeTimerContainer: React.FC = () => {
   const [nextBlock, setNextBlock] = useState<Block | null>(null);
   const [accumulatedWater, setAccumulatedWater] = useState(0);
   const [nextAccumulatedWater, setNextAccumulatedWater] = useState(0);
+  const [remainingTime, setRemainingTime] = useState(0);
   const [blocks, setBlocks] = useState<Block[]>(
     prebuiltRecipes["James Hoffmann - A Better 1 Cup V60"].blocks,
   );
@@ -52,6 +53,8 @@ const CoffeeTimerContainer: React.FC = () => {
           } else {
             setNextAccumulatedWater(0);
           }
+          const endTime = accumulatedTime + blockDuration;
+          setRemainingTime(endTime - currentTime);
           break;
         }
         water += block.water;
@@ -66,6 +69,7 @@ const CoffeeTimerContainer: React.FC = () => {
       setNextBlock(null);
       setAccumulatedWater(0);
       setNextAccumulatedWater(0);
+      setRemainingTime(0);
     }
   }, [currentTime, isTimerRunning, blocks]);
 
@@ -128,12 +132,14 @@ const CoffeeTimerContainer: React.FC = () => {
                   <CurrentExtractionStep
                     block={currentBlock}
                     accumulatedWater={accumulatedWater}
+                    remainingTime={remainingTime}
                   />
                 </div>
                 <div style={{ flex: "40%", borderLeft: "1px solid #ccc" }}>
                   <NextExtractionStep
                     block={nextBlock}
                     accumulatedWater={nextAccumulatedWater}
+                    remainingTime={remainingTime}
                   />
                 </div>
               </div>

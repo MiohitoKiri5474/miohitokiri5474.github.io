@@ -11,12 +11,15 @@ interface Block {
 interface CurrentExtractionStepProps {
   block: Block;
   accumulatedWater: number;
+  remainingTime: number;
 }
 
 const CurrentExtractionStep: React.FC<CurrentExtractionStepProps> = ({
   block,
   accumulatedWater,
+  remainingTime,
 }) => {
+  const remainingSeconds = Math.ceil(remainingTime / 1000);
   return (
     <div
       style={{
