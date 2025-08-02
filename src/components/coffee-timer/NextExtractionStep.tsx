@@ -2,8 +2,8 @@ import React from "react";
 
 interface Block {
   id: string;
-  time: number;
-  water: number;
+  time: number | string;
+  water: number | string;
   notice?: string;
   step?: string;
 }

@@ -417,7 +417,7 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
                         </label>
                         <input
                           type="text"
-                          value={block.notice}
+                          value={block.notice ?? ""}
                           onChange={(e) =>
                             handleInputChange(
                               block.id,
