@@ -4,8 +4,8 @@ import type { DropResult } from "react-beautiful-dnd";
 
 interface Block {
   id: string;
-  time: number;
-  water: number;
+  time: number | string;
+  water: number | string;
   notice?: string;
   step?: string;
 }
@@ -192,7 +192,11 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
     setBlocks(blocks.filter((block) => block.id !== id));
   };
 
-  const handleInputChange = (id: string, field: keyof Block, value: string) => {
+  const handleInputChange = (
+    id: string,
+    field: keyof Block,
+    value: string,
+  ) => {
     const newBlocks = blocks.map((block) => {
       if (block.id === id) {
         return { ...block, [field]: value };

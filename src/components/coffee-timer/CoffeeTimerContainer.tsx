@@ -7,8 +7,8 @@ import ExtractionBlocks, { prebuiltRecipes } from "./ExtractionBlocks";
 
 interface Block {
   id: string;
-  time: number;
-  water: number;
+  time: number | string;
+  water: number | string;
   notice?: string;
   step?: string;
 }
@@ -39,17 +39,17 @@ const CoffeeTimerContainer: React.FC = () => {
 
       for (let i = 0; i < blocks.length; i++) {
         const block = blocks[i];
-        const blockDuration = block.time * 1000; // Convert seconds to milliseconds
+        const blockDuration = Number(block.time) * 1000; // Convert seconds to milliseconds
 
         if (
           currentTime >= accumulatedTime &&
           currentTime < accumulatedTime + blockDuration
         ) {
           foundBlock = block;
-          water += block.water;
+          water += Number(block.water);
           if (i + 1 < blocks.length) {
             foundNextBlock = blocks[i + 1];
-            setNextAccumulatedWater(water + blocks[i + 1].water);
+            setNextAccumulatedWater(water + Number(blocks[i + 1].water));
           } else {
             setNextAccumulatedWater(0);
           }
@@ -57,7 +57,7 @@ const CoffeeTimerContainer: React.FC = () => {
           setRemainingTime(endTime - currentTime);
           break;
         }
-        water += block.water;
+        water += Number(block.water);
         accumulatedTime += blockDuration;
       }
 
