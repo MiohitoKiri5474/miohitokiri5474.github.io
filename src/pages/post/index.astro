@@ -166,7 +166,11 @@ const posts = (await getCollection("post"))
                                                 src={
                                                     post.data.heroImage
                                                         ? post.data.heroImage
-                                                        : "/code-default.jpg"
+                                                        : (
+                                                            post.data.tags.includes("game")
+                                                                ? "/game-default.jpg"
+                                                                : "/code-default.jpg"
+                                                        )
                                                 }
                                                 alt=""
                                             />
