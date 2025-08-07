@@ -2,9 +2,7 @@
 title: "格利極約利昂中速 Grixis Yorion Midrange"
 pubDate: 2023-07-25 20:02:36
 tags:
-  - Pioneer
-  - MTG
-  - Grixis Midrange
+  - game
 heroImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRug7AdKg_PEZ9QaK8pwE2dU5b--SC3XgUntg&s"
 ---
 

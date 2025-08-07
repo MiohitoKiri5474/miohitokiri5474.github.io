@@ -1,10 +1,8 @@
 ---
 title: "近代隨筆 2023/12/31"
 pubDate: 2023-12-31 16:17:14
-heroImage: "/game-default.jpg"
 tags:
-  - Modern
-  - MTG
+  - game
 ---
 
 ## Before We Start
