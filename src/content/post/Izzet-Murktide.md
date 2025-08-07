@@ -2,8 +2,7 @@
 title: "伊捷龍侯 Izzet Murktide"
 pubDate: 2023-08-08 15:02:31
 tags:
-  - Modern
-  - MTG
+  - game
 heroImage: "https://guildmagesforum.tw/images/Izzet-Murktide/Cover.jpg"
 ---
 

@@ -1,7 +1,6 @@
 import React, { Fragment } from "react";
 import { Menu, MenuItems, MenuButton, Transition } from "@headlessui/react";
 import { IoMenu } from "react-icons/io5";
-import BlogSelect from "./BlogSelect";
 
 export default function DropdownMenu() {
   return (
@@ -40,24 +39,12 @@ export default function DropdownMenu() {
             <Menu.Item>
               {({ active }) => (
                 <a
-                  href="/code"
+                  href="/post"
                   className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
                     active ? "bg-orange-200 dark:bg-zinc-700" : ""
                   }`}
                 >
-                  Code
-                </a>
-              )}
-            </Menu.Item>
-            <Menu.Item>
-              {({ active }) => (
-                <a
-                  href="/game"
-                  className={`block px-4 py-2 text-sm uppercase font-bold no-underline ${
-                    active ? "bg-orange-200 dark:bg-zinc-700" : ""
-                  }`}
-                >
-                  Game
+                  Posts
                 </a>
               )}
             </Menu.Item>

@@ -4,6 +4,8 @@ pubDate: 2025-07-14 14:12:23
 heroImage: "/MBP14.jpeg"
 ---
 
+> 這張封面是前陣子去 here Tainan 時拍的
+
 ## 我當初怎麼會想不開買 Mac
 
 我已經用 Mac 作為主力工作機很久了，除非一些非在 Windows 上面做的工作或是要打遊戲，不然我基本上是不會開 Windows 來用的

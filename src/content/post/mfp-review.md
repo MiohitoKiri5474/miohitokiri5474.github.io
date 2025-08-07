@@ -2,7 +2,7 @@
 title: "My Friend Pedro短評"
 pubDate: 2019-08-24 17:22:58
 tags:
-  - Game
+  - game
 heroImage: "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/557340/header.jpg?t=1686262019"
 ---
 

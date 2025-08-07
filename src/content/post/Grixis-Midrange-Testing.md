@@ -2,9 +2,7 @@
 title: "近期對於格利極中速的一些測試心得"
 pubDate: 2023-07-20 12:06:05
 tags:
-  - Grixis Midrange
-  - Pioneer
-  - MTG
+  - game
 heroImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9o16O64sEBwFF-P0yCDEk5lK28fsfzNCERA&s"
 ---
 

@@ -2,6 +2,8 @@
 title: "Something About Rakdos Midrange"
 pubDate: 2023-07-18 20:21:01
 heroImage: "https://cdnb.artstation.com/p/assets/images/images/017/692/791/large/adam-paquette-402481-r.jpg?1556986302"
+tags:
+  - game
 ---
 
 ## Before We Start

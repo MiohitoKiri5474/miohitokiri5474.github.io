@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 import FormattedDate from "../../components/FormattedDate.astro";
 import GoogleAnalytics from "../../components/GoogleAnalytics.astro";
 
-const posts = (await getCollection("game"))
+const posts = (await getCollection("post"))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
@@ -130,7 +130,6 @@ const posts = (await getCollection("game"))
             li {
                 white-space: normal;
             }
-
             </style>
     </head>
     <GoogleAnalytics id="G-5PX5VJYPVK"/>
@@ -150,7 +149,7 @@ const posts = (await getCollection("game"))
                     class="x-10 px-8 drop-shadow-lg shadow-black text-center bg-blur"
                 >
                     <div class="text-4xl font-mplus font-medium text-zinc-200">
-                        Blog Post <br /> Games & TCG
+                        Blog Post <br /> Coding & Techs
                     </div>
                 </div>
             </section>
@@ -161,13 +160,17 @@ const posts = (await getCollection("game"))
                         {
                             posts.map((post) => (
                                 <li class="list-item">
-                                    <a href={`/game/${post.slug}/`}>
+                                    <a href={`/post/${post.slug}/`}>
                                         <div class="image-container">
                                             <img
                                                 src={
                                                     post.data.heroImage
                                                         ? post.data.heroImage
-                                                        : "/game-default.jpg"
+                                                        : (
+                                                            post.data.tags.includes("game")
+                                                                ? "/game-default.jpg"
+                                                                : "/code-default.jpg"
+                                                        )
                                                 }
                                                 alt=""
                                             />
