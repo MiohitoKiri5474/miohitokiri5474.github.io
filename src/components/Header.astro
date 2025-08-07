@@ -3,7 +3,6 @@ import HeaderLink from "./HeaderLink.astro";
 import { SITE_TITLE } from "../consts";
 import { IoLogoGithub, IoSearchSharp } from "react-icons/io5";
 import ThemeToggle from "./ThemeToggleButtom";
-import BlogSelect from "./BlogSelect";
 import DropdownMenu from "./HeaderHamburger.tsx";
 
 const { className = "" } = Astro.props;
@@ -19,7 +18,7 @@ const { className = "" } = Astro.props;
             </div>
             <div class="items-center gap-6 hidden md:flex">
                 <HeaderLink href="/">Home</HeaderLink>
-                <BlogSelect className={className} client:visible />
+                <HeaderLink href="/post">Posts</HeaderLink>
                 <HeaderLink href="/about">About</HeaderLink>
                 <HeaderLink href="/uses">Uses</HeaderLink>
                 <HeaderLink href="/coffee-timer">Timer</HeaderLink>
