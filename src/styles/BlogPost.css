@@ -4,9 +4,12 @@ main {
   display: flex;
   justify-content: center;
 }
-iframe {
-  height: auto;
-  max-width: 500px;
+.yt-video {
+  margin-left: auto;
+  margin-right: auto;
+  height: 450px;
+  width: 900px;
+  aspect-ratio:auto;
 }
 .hero-image {
   width: 100%;
