@@ -1,6 +1,6 @@
 ---
-title: "自組 NAS 踩坑 & 紀錄"
-pubDate: 2025-08-25 12:00:00
+title: "自組 NAS 踩坑 & 紀錄 part 1"
+pubDate: 2025-08-26 12:00:00
 heroImage: ""
 draft: true
 ---
@@ -28,6 +28,7 @@ draft: true
 其實我現在還是覺得如果只是想要搞一個簡單的 4/5 Bay NAS，這個方案應該還是我心目中最好的，ARM 處理器的低功耗加上體積小實在是很舒服
 本來我都打算下訂了，不過正好最近手邊的工作可能需要用自建的 Git server（不確定檔案能不能上雲，即便是 private repo
 還有跟朋友一起經營的魔風網站最近這一年內規模擴大，每次跑 CI/CD 自動化部署網站可能會把我的免費 GitHub runner credit 吃完，等到我真的要用的時候沒額度可以用，所以如果有資源的話希望可以放到自己的 runner 上跑
+
 後來大概估算一下，以上功能通通丟在一個 SBC 上面跑有點勉強，後來被大學社團認識的大佬 [Toby Chui](https://github.com/tobychui) 推坑跑去買了台二手 NEC M720Q 來當我的第一台 homelab 機器了
 
 ### NEC M720Q
@@ -42,16 +43,28 @@ M720Q 的主機板上還有一個 16 通道的 PCIe，理論上可以插一張�
 
 ## 系統安裝
 
-通常來說，server 都應該是裝 FreeBSD 或 Debian/Ubuntu 的才對
+通常來說，server 都應該是裝 FreeBSD 或 Debian/Ubuntu 的
 但我就喜歡 ArchLinux 的自主性，只要裝一些自己會用到的 package 就好了
+而且如果有一些不支援的 ArchLinux 的套件需要安裝，基本上都能找到裝上去的文章教學
 
 ⋯⋯雖然是這樣說，但我後來還是發懶直接用內建安裝腳本了，選 server 的 list 安裝，還算蠻快的，從設定到安裝完大概只有 10 分鐘
 而且這次讓我有點意外，安裝完的畫面有提醒我有網頁版的 terminal 能用，我就不用直接 ssh 進去了
 雖然我要做事應該還是會直接 ssh 進去，不過除了 terminal 以外還能監看現在的系統狀況，像是當前 CPU/Ram 使用量，還算方便
 
+> 後來發現是在額外的套件列表中我有勾選一個套件叫 cockpit.socket˙ 才多了這個功能
+
 考慮到如果不小心滾 ArchLinux 把系統滾爛了，我打算把系統部分每週都做一次備份，真的爛掉了就拿備份蓋回去，或是直接重裝系統，反正用腳本裝很懶人，幾乎可以當作無腦安裝了
 
-### Package List
+⋯⋯但我在 server 跑起來的幾天後又裝成 Ubuntu 了，而且還是一波多折
+首先我在裝 GitLab 的時候遇到問題，GitLab 原生並不支援 ArchLinux，於是我想到可以用 Docker 跑
+試了幾個版本的 `docker-compose.yml`，其中一個有成功跑起來，但我的連線設定有問題沒辦法用 ssh remote
+改完設定重新跑 `docker-compose up` 之後，我的服務再也無法成功啟動了（不然就是啟動後無法使用
+後來想說 fk it 大不了用 Gitea + Drone 頂著用，不過我還在研究的同時發現 OpenMediaVault 這個開源 NAS 系統，想說應該或許可能可以裝載我的 server 上，而不是單純用 smb 連線
+想當然設計給 Debian 的軟體不能正常運行在 ArchLinux 上，於是我想說不然改裝基於 Debian 的 Ubuntu 好了
+經過幾次安裝失敗後（可能我燒 bootable USB 的時候哪邊出了問題，後來重燒一隻一次成功），終於能安裝 OMV 了⋯⋯然後就失敗了
+後來爬文才知道雖然 Ubuntu 是基於 Debian 開發的，但說到底已經是獨立的分支，兩者並不完全相容
 
-大概跟我 dotfile 中 Ubuntu 的安裝清單類似，不過有些 package 名稱要換一下，同時裝 NeoVim 的方式也不同
-這邊應該會在整理後加入 dotfile 的 readme 中
+所以沒錯！我又跑去裝了 Debian 13，摸索了一陣子把套件都設定完之後——又發現 OMV 還沒支援今年八月才釋出的 Debian 13
+因此我又跑去裝了 Debian 12⋯⋯最後發現 Debian 超難用所以又裝回 Ubuntu 24.04⋯⋯
+
+最後我還是裝了 Ubuntu 24.04，目前正在完善各個服務中
