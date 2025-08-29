@@ -5,6 +5,8 @@ main {
   justify-content: center;
 }
 .yt-video {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   margin-left: auto;
   margin-right: auto;
   height: 450px;
