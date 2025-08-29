@@ -86,19 +86,26 @@ const Timer: React.FC<TimerProps> = ({ onTimerUpdate }) => {
           marginRight: "auto",
         }}
       >
-        <button
-          onClick={toggleTimer}
-          style={{ fontSize: "2em", padding: "0.5em 1em" }}
-        >
-          {isRunning ? "Stop" : "Start"}
-        </button>
-        {!isRunning && (
+        {isRunning ? (
+          <button
+            onClick={toggleTimer}
+            style={{ fontSize: "2em", padding: "0.5em 1em" }}
+          >
+            Stop
+          </button>
+        ) : time > 0 ? (
           <button
             onClick={resetTimer}
-            disabled={time === 0}
             style={{ fontSize: "2em", padding: "0.5em 1em" }}
           >
             Clear
+          </button>
+        ) : (
+          <button
+            onClick={toggleTimer}
+            style={{ fontSize: "2em", padding: "0.5em 1em" }}
+          >
+            Start
           </button>
         )}
       </div>
