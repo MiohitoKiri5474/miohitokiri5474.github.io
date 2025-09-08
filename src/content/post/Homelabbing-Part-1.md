@@ -24,7 +24,9 @@ draft: true
 
 ### Raspberry Pi 5/Rock Pi 5 + Penta SATA Hat
 
-其實我最一開始是考慮用 Raspberry Pi 5 或 Rock Pi 加上 Penta SATA Hat 做的，之前概算過費用大概 5000 多（不含硬碟）可以搞定
+<iframe src="https://www.youtube.com/embed/l30sADfDiM8?si=_REcunfnceoMYXKJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+
+其實我最一開始是考慮用 Raspberry Pi 5 或 Rock Pi 加上 Penta SATA Hat 做的，之前概算過費用大概 5000 多（不含硬碟但含外殼、電供等其他東西）可以搞定
 其實我現在還是覺得如果只是想要搞一個簡單的 4/5 Bay NAS，這個方案應該還是我心目中最好的，ARM 處理器的低功耗加上體積小實在是很舒服
 本來我都打算下訂了，不過正好最近手邊的工作可能需要用自建的 Git server（不確定檔案能不能上雲，即便是 private repo
 還有跟朋友一起經營的魔風網站最近這一年內規模擴大，每次跑 CI/CD 自動化部署網站可能會把我的免費 GitHub runner credit 吃完，等到我真的要用的時候沒額度可以用，所以如果有資源的話希望可以放到自己的 runner 上跑
