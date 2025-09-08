@@ -6,8 +6,9 @@
 
 :root {
   --black: 15, 18, 25;
-  --box-shadow: 0 2px 6px rgba(var(--gray), 25%),
-    0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%);
+  --box-shadow:
+    0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
+    0 16px 32px rgba(var(--gray), 33%);
 }
 @font-face {
   font-family: "Atkinson";
@@ -40,28 +41,25 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 0.5rem 0;
+  /* margin: 0.5rem 0 0.5rem 0; */
+  margin-top: 1em;
+  margin-bottom: 0.5em;
   line-height: 1.2;
 }
 h1 {
   font-size: 3.052em;
-  margin-bottom: 1em;
 }
 h2 {
   font-size: 2.441em;
-  margin-bottom: 1em;
 }
 h3 {
   font-size: 1.953em;
-  margin-bottom: 1em;
 }
 h4 {
   font-size: 1.563em;
-  margin-bottom: 1em;
 }
 h5 {
   font-size: 1.25em;
-  margin-bottom: 1em;
 }
 strong,
 b {
@@ -196,9 +194,9 @@ code .line:last-child:empty::before {
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-image-border-radius: 8px;
   --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: system, -apple-system, ".SFNSText-Regular",
-    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
-    sans-serif;
+  --pagefind-ui-font:
+    system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto",
+    "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 }
 
 :root.dark {
@@ -213,7 +211,7 @@ code .line:last-child:empty::before {
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-image-border-radius: 8px;
   --pagefind-ui-image-box-ratio: 3 / 2;
-  --pagefind-ui-font: system, -apple-system, ".SFNSText-Regular",
-    "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande",
-    sans-serif;
+  --pagefind-ui-font:
+    system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto",
+    "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
 }
