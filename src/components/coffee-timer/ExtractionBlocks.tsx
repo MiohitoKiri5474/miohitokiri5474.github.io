@@ -12,7 +12,7 @@ interface Block {
 
 interface Recipe {
   blocks: Block[];
-  notice?: string;
+  notice?: string[];
 }
 
 const JamesHoffmannV60: Recipe = {
@@ -53,7 +53,7 @@ const JamesHoffmannV60: Recipe = {
       notice: "Stable pouring water in the first 10s then gentaly swirl",
     },
   ],
-  notice: "15g beans w/ 250g water",
+  notice: ["15g beans w/ 250g water"],
 };
 
 const KurasuKyotoV60: Recipe = {
@@ -75,7 +75,7 @@ const KurasuKyotoV60: Recipe = {
         "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
     },
   ],
-  notice: "13g beans w/ 200g water",
+  notice: ["13g beans w/ 200g water"],
 };
 
 const KurasuKyotoV60Iced: Recipe = {
@@ -97,7 +97,32 @@ const KurasuKyotoV60Iced: Recipe = {
         "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
     },
   ],
-  notice: "16g beans w/ 70g ice and 150g water (91℃)",
+  notice: ["16g beans w/ 70g ice and 150g water (91℃)"],
+};
+
+const KurasuKyotoV60Iced125: Recipe = {
+  blocks: [
+    {
+      id: "block-a",
+      step: "Bloom",
+      time: 30,
+      water: 50,
+      notice: "Gently stir with a spoon right after pouring.",
+    },
+    { id: "block-b", step: "2nd Pour", time: 30, water: 75 },
+    {
+      id: "block-c",
+      step: "3rd Pour",
+      time: 0,
+      water: 65,
+      notice:
+        "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
+    },
+  ],
+  notice: [
+    'This recipe is base on "Kurasu Kyoto - V60 Iced" with 25% more water.',
+    "20g beans w/ 85g ice and 150g water (91℃)",
+  ],
 };
 
 const KurasuKyotoV60LightBasicRecipe: Recipe = {
@@ -125,13 +150,14 @@ const KurasuKyotoV60LightBasicRecipe: Recipe = {
       notice: "Give it a final stir with a tea spoon after pouring.",
     },
   ],
-  notice: "14g beans w/ 200g water (91℃)",
+  notice: ["14g beans w/ 200g water (91℃)"],
 };
 
 export const prebuiltRecipes: { [key: string]: Recipe } = {
   "James Hoffmann - A Better 1 Cup V60": JamesHoffmannV60,
   "Kurasu Kyoto - V60": KurasuKyotoV60,
   "Kurasu Kyoto - V60 Iced": KurasuKyotoV60Iced,
+  "Kurasu Kyoto - V60 Iced 125%": KurasuKyotoV60Iced125,
   "Kurasu Kyoto - V60 Light Roast": KurasuKyotoV60LightBasicRecipe,
 };
 
@@ -192,11 +218,7 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
     setBlocks(blocks.filter((block) => block.id !== id));
   };
 
-  const handleInputChange = (
-    id: string,
-    field: keyof Block,
-    value: string,
-  ) => {
+  const handleInputChange = (id: string, field: keyof Block, value: string) => {
     const newBlocks = blocks.map((block) => {
       if (block.id === id) {
         return { ...block, [field]: value };
@@ -246,13 +268,14 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
         </select>
       </div>
 
-      {selectedRecipe !== "Custom" ? (
+      {selectedRecipe !== "Custom" &&
+      prebuiltRecipes[selectedRecipe].notice ? (
         <div
           style={{
             position: "relative",
             display: "flex",
             flexDirection: "column",
-            gap: "1em",
+            gap: "0.5em", // smaller gap for lines of text
             marginBottom: "1.5em",
             padding: "1.5em",
             border: "1px solid #ccc",
@@ -262,7 +285,11 @@ const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
           }}
           className="bg-slate-400 dark:bg-slate-500"
         >
-          {prebuiltRecipes[selectedRecipe].notice}
+          {prebuiltRecipes[selectedRecipe].notice?.map((line, index) => (
+            <p key={index} style={{ margin: 0 }}>
+              {line}
+            </p>
+          ))}
         </div>
       ) : (
         ""
