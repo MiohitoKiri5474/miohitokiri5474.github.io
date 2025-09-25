@@ -74,3 +74,12 @@ heroImage: "https://img.alicdn.com/imgextra/i3/2209429052246/O1CN01qOl60L1SSiJly
 有點想要放推直接繼續用 GitHub private repo 就好或是別塞在 docker 裡面，不知道會不會容易一些
 
 總之我先去搞其他服務ㄌ
+
+## Update @ Sep 25 2025
+
+後來我遇到一個硬體錯誤，NVME ssd 大約會在 server 連續使用一週左右發生寫入錯誤
+問了一下比較有經驗的朋友，就被叫去裝 Debian 了
+有了前一次經驗之後安裝還算順利，於是就繼續使用 Debian 13 了
+⋯⋯不過改用 Debian 過後幾週也是遇到一樣的錯誤，我用 `smartctl` 檢查也沒有任何錯誤，況且這張 ssd 是年初想拿來當 Mac Mini M4 的系統碟而買的，當時使用沒有問題
+所以現在只能先把之前買的外接盒拿來用，檢查一下是硬體還是軟體問題，現在已經換過系統了所以應該是硬體問題，不過要確認一下是哪邊的硬體出錯
+另外也下訂了 PCIe A/E to M.2 的轉接卡，畢竟 M720Q 的 type-c 只有 USB 只有 5Gbps，就算 A/E to M.2 有性能損耗應該還是比 5Gbps 強⋯⋯吧？
