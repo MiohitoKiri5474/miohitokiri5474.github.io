@@ -169,7 +169,7 @@ const posts = (await getCollection("post"))
                                                     post.data.heroImage
                                                         ? post.data.heroImage
                                                         : (
-                                                            post.data.tags.includes("game")
+                                                            post.data.tags != undefined && post.data.tags.includes("game")
                                                                 ? "/game-default.jpg"
                                                                 : "/code-default.jpg"
                                                         )
