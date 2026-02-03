@@ -27,7 +27,7 @@ const { placeholderText } = Astro.props;
 >
 </div>
 
-<script define:vars={{ placeholderText }}>
+<script is:inline define:vars={{ placeholderText }}>
     function initPagefind() {
         const pagefindElement = document.getElementById("pagefind-search");
         if (pagefindElement?.dataset.initialized) return;

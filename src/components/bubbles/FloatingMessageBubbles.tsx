@@ -3,11 +3,18 @@ import MessageList from "./MessageList.tsx";
 import MessageInput from "./MessageInput.tsx";
 import "../../styles/bubbles.css";
 
+interface Message {
+  id: number;
+  text: string;
+  timestamp: number;
+  expired?: boolean;
+}
+
 const FloatingMessageBubbles = () => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [typingText, setTypingText] = useState(""); // New state for typing indicator
 
-  const handleAddMessage = (text) => {
+  const handleAddMessage = (text: string) => {
     const newMessage = {
       id: Date.now(),
       text,
@@ -18,7 +25,7 @@ const FloatingMessageBubbles = () => {
   };
 
   // Handler for input changes
-  const handleTypingChange = (text) => {
+  const handleTypingChange = (text: string) => {
     setTypingText(text);
   };
 

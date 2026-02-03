@@ -1,7 +1,17 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-const MessageList = ({ messages }) => {
+interface Message {
+  id: number;
+  text: string;
+  timestamp: number;
+  expired?: boolean;
+}
+
+interface MessageListProps {
+  messages: Message[];
+}
+
+const MessageList = ({ messages }: MessageListProps) => {
   return (
     <div className="message-list">
       {messages.map((message) => (
@@ -14,17 +24,6 @@ const MessageList = ({ messages }) => {
       ))}
     </div>
   );
-};
-
-MessageList.propTypes = {
-  messages: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      text: PropTypes.string.isRequired,
-      timestamp: PropTypes.number.isRequired,
-      expired: PropTypes.bool.isRequired,
-    }),
-  ).isRequired,
 };
 
 export default MessageList;

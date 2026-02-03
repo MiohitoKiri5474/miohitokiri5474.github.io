@@ -1,17 +1,28 @@
 ---
-function buildTOC(headings) {
-    const toc = [];
+interface Heading {
+    depth: number;
+    slug: string;
+    text: string;
+}
+
+interface TOCHeading extends Heading {
+    subheadings: TOCHeading[];
+    prefix?: string;
+}
+
+function buildTOC(headings: Heading[]) {
+    const toc: TOCHeading[] = [];
     const parentHeadings = new Map();
     const numbering = new Map();
-    headings.forEach((h) => {
-        const heading = { ...h, subheadings: [] };
+    headings.forEach((h: Heading) => {
+        const heading: TOCHeading = { ...h, subheadings: [] };
         parentHeadings.set(heading.depth, heading);
         numbering.set(heading.depth, (numbering.get(heading.depth) || 0) + 1);
         // Reset numbering for deeper levels
         for (let i = heading.depth + 1; i <= 6; i++) numbering.set(i, 0);
         const prefix = Array.from(numbering.entries())
-            .filter(([depth, num]) => num > 0)
-            .map(([depth, num]) => num)
+            .filter(([, num]) => num > 0)
+            .map(([, num]) => num)
             .join(".");
         heading.prefix = prefix;
         toc.push(heading);
