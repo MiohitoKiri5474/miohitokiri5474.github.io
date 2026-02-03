@@ -117,8 +117,7 @@ const CoffeeTimerContainer: React.FC = () => {
         <div className="main-content">
           <div
             style={{
-              minHeight: "200px",
-              maxHeight: "200px",
+              height: "200px",
               borderRadius: "8px",
               display: "flex",
               alignItems: "center",
@@ -127,15 +126,23 @@ const CoffeeTimerContainer: React.FC = () => {
             className="bg-slate-200 dark:bg-slate-800"
           >
             {isTimerRunning && currentBlock ? (
-              <div style={{ display: "flex", width: "100%" }}>
-                <div style={{ flex: "60%" }}>
+              <div style={{ display: "flex", width: "100%", height: "100%" }}>
+                <div style={{ flex: "60%", height: "200px" }}>
                   <CurrentExtractionStep
                     block={currentBlock}
                     accumulatedWater={accumulatedWater}
                     remainingTime={remainingTime}
                   />
                 </div>
-                <div style={{ flex: "40%", borderLeft: "1px solid #ccc" }}>
+                <div
+                  style={{
+                    flex: "40%",
+                    height: "200px",
+                    borderLeft: "1px solid #ccc",
+                    // marginTop: "0.5em",
+                    // marginBottom: "0.5em",
+                  }}
+                >
                   <NextExtractionStep
                     block={nextBlock}
                     accumulatedWater={nextAccumulatedWater}

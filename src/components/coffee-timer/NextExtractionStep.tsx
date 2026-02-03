@@ -43,13 +43,14 @@ const NextExtractionStep: React.FC<NextExtractionStepProps> = ({
         borderRadius: "8px",
         textAlign: "center",
         opacity: 0.5,
+        height: "200px",
       }}
     >
-      <p style={{ fontSize: "1.2em", marginTop: "0.5em" }}>
+      <p style={{ fontSize: "1.2em" }}>
         Next step in {remainingSeconds} seconds
       </p>
-      <h2 style={{ fontSize: "1.5em", marginBottom: "0.5em" }}>{block.step}</h2>
-      <p style={{ fontSize: "1.2em", marginBottom: "0.5em" }}>
+      <h2 style={{ fontSize: "1.5em" }}>{block.step}</h2>
+      <p style={{ fontSize: "1.2em" }}>
         Pour: {block.water}g (total: {accumulatedWater}g)
       </p>
       {block.notice && (

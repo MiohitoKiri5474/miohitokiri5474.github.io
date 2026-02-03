@@ -24,6 +24,7 @@ const CurrentExtractionStep: React.FC<CurrentExtractionStepProps> = ({
         padding: "1em",
         borderRadius: "8px",
         textAlign: "center",
+        height: "200px",
       }}
     >
       <h2 style={{ fontSize: "2em", marginBottom: "0.5em" }}>{block.step}</h2>
