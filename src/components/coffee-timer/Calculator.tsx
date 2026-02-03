@@ -17,15 +17,6 @@ const Calculator = () => {
     }
   }, [waterWeight, ratio]);
 
-  const roundUp = () => {
-    if (waterWeight) {
-      setWaterWeight(Math.ceil(Number(waterWeight)));
-    }
-    if (beanWeight) {
-      setBeanWeight(Math.ceil(Number(beanWeight)));
-    }
-  };
-
   return (
     <div
       style={{
