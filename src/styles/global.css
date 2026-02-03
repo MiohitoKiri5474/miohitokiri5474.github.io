@@ -25,7 +25,7 @@
   font-display: swap;
 }
 body {
-  font-family: "Atkinson", sans-serif;
+  font-family: "Menlo", "Monaco", "Courier New", monospace, "Atkinson", sans-serif;
   margin: 0;
   padding: 0;
   text-align: left;
@@ -171,10 +171,11 @@ code {
 code .line::before {
   content: counter(step);
   counter-increment: step;
-  width: 1rem;
+  width: 2rem;
   margin-right: 1rem;
   display: inline-block;
   text-align: right;
+  white-space: nowrap;
 }
 
 code .line:last-child:empty::before {
