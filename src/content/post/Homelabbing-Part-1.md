@@ -23,7 +23,7 @@ heroImage: "/IMG_9739.jpeg"
 
 ### Raspberry Pi 5/Rock Pi 5 + Penta SATA Hat
 
-<iframe src="https://www.youtube.com/embed/l30sADfDiM8?si=_REcunfnceoMYXKJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
+<iframe class="yt-video" src="https://www.youtube.com/embed/l30sADfDiM8?si=_REcunfnceoMYXKJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen />
 
 其實我最一開始是考慮用 Raspberry Pi 5 或 Rock Pi 加上 Penta SATA Hat 做的，之前概算過費用大概 5000 多（不含硬碟但含外殼、電供等其他東西）可以搞定
 其實我現在還是覺得如果只是想要搞一個簡單的 4/5 Bay NAS，這個方案應該還是我心目中最好的，ARM 處理器的低功耗加上體積小實在是很舒服
