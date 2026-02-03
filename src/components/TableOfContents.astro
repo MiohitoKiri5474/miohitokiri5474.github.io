@@ -104,12 +104,12 @@ const { headings, title } = Astro.props;
         {
             buildTOC(headings).map(
                 ({ depth, slug: headingSlug, text, prefix }) => {
-                    const nestedHeadingClass = "text-sm px-8";
+                    const nestedHeadingClass = "text-sm";
                     const headingClass = "";
                     const depthClass = `${depth > 2 ? nestedHeadingClass : headingClass}`;
                     return (
                         <li class="p-0 m-0">
-                            <div class=`toc-container ${depthClass}`>
+                            <div class={`toc-container ${depthClass}`}>
                                 <a
                                     data-cy="toc-link"
                                     data-toc-link
@@ -117,7 +117,7 @@ const { headings, title } = Astro.props;
                                     class="block no-underline transition-opacity toc-item"
                                     href={`#${headingSlug}`}
                                 >
-                                    <div class="toc-number">
+                                    <div class="toc-number" style={`min-width: ${(depth - 1) * 2}rem; flex-shrink: 0; white-space: nowrap;`}>
                                         {prefix}
                                     </div>
                                     <div class="toc-link-title">
@@ -130,7 +130,6 @@ const { headings, title } = Astro.props;
                 },
             )
         }
-        <!-- {toc.map((heading) => <TableOfContentsHeading heading={heading} classList=classList />)} -->
     </ul>
 </nav>
 
