@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Content from "../components/Content.astro";
 import GoogleAnalytics from "../components/GoogleAnalytics.astro";
+import CodeCopyScript from "../components/CodeCopyScript.astro";
 import "/node_modules/katex/dist/katex.min.css";
 
 import "../styles/Uses.css";
@@ -16,6 +17,7 @@ const { title, description, heroImage = "" } = Astro.props["data"];
     <head>
         <BaseHead title={title} description={description} image={heroImage} />
         <link rel="sitemap" href="/sitemap-index.xml" />
+        <CodeCopyScript />
     </head>
     <GoogleAnalytics id="G-5PX5VJYPVK" />
 
