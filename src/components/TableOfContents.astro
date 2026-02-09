@@ -175,6 +175,11 @@ const { headings, title } = Astro.props;
         max-width: 100%;
         margin-bottom: 0;
         font-family: "Menlo", "Monaco", "Courier New", monospace;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .toc::-webkit-scrollbar {
+        display: none;
     }
     .toc-title {
         font: 50pt;
