@@ -3,17 +3,16 @@ import Timer from "./Timer";
 import Calculator from "./Calculator";
 import CurrentExtractionStep from "./CurrentExtractionStep";
 import NextExtractionStep from "./NextExtractionStep";
-import ExtractionBlocks, { prebuiltRecipes } from "./ExtractionBlocks";
+import ExtractionBlocks from "./ExtractionBlocks";
+import type { Block, Recipe } from "./types";
 
-interface Block {
-  id: string;
-  time: number | string;
-  water: number | string;
-  notice?: string;
-  step?: string;
+interface CoffeeTimerContainerProps {
+  prebuiltRecipes: { [key: string]: Recipe };
 }
 
-const CoffeeTimerContainer: React.FC = () => {
+const CoffeeTimerContainer: React.FC<CoffeeTimerContainerProps> = ({
+  prebuiltRecipes,
+}) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [currentBlock, setCurrentBlock] = useState<Block | null>(null);
@@ -22,7 +21,7 @@ const CoffeeTimerContainer: React.FC = () => {
   const [nextAccumulatedWater, setNextAccumulatedWater] = useState(0);
   const [remainingTime, setRemainingTime] = useState(0);
   const [blocks, setBlocks] = useState<Block[]>(
-    prebuiltRecipes["James Hoffmann - A Better 1 Cup V60"].blocks,
+    Object.values(prebuiltRecipes)[0]?.blocks || [],
   );
 
   const handleTimerUpdate = useCallback((time: number, isRunning: boolean) => {
@@ -157,7 +156,11 @@ const CoffeeTimerContainer: React.FC = () => {
           <Timer onTimerUpdate={handleTimerUpdate} />
         </div>
         <div className="right-column">
-          <ExtractionBlocks blocks={blocks} setBlocks={setBlocks} />
+          <ExtractionBlocks
+            blocks={blocks}
+            setBlocks={setBlocks}
+            prebuiltRecipes={prebuiltRecipes}
+          />
         </div>
       </main>
     </div>

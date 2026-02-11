@@ -1,178 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import type { DropResult } from "react-beautiful-dnd";
-
-interface Block {
-  id: string;
-  time: number | string;
-  water: number | string;
-  notice?: string;
-  step?: string;
-}
-
-interface Recipe {
-  blocks: Block[];
-  notice?: string[];
-}
-
-const JamesHoffmannV60: Recipe = {
-  blocks: [
-    {
-      id: "block-a",
-      step: "Bloom",
-      time: 45,
-      water: 50,
-      notice: "Gently swirl at 00:10.",
-    },
-    {
-      id: "block-b",
-      step: "2nd Pour",
-      time: 25,
-      water: 50,
-      notice: "Stable and average pouring water in the first 15s then rest.",
-    },
-    {
-      id: "block-d",
-      step: "3rd Pour",
-      time: 20,
-      water: 50,
-      notice: "Stable and average pouring water in the first 10s then rest.",
-    },
-    {
-      id: "block-f",
-      step: "4nd Pour",
-      time: 20,
-      water: 50,
-      notice: "Stable and average pouring water in the first 10s then rest.",
-    },
-    {
-      id: "block-h",
-      step: "5th Pour",
-      time: 0,
-      water: 50,
-      notice: "Stable pouring water in the first 10s then gentaly swirl",
-    },
-  ],
-  notice: ["15g beans w/ 250g water"],
-};
-
-const KurasuKyotoV60: Recipe = {
-  blocks: [
-    {
-      id: "block-a",
-      step: "Bloom",
-      time: 30,
-      water: 30,
-      notice: "Gently stir with a spoon right after pouring.",
-    },
-    { id: "block-b", step: "2nd Pour", time: 30, water: 70 },
-    {
-      id: "block-c",
-      step: "3rd Pour",
-      time: 0,
-      water: 100,
-      notice:
-        "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
-    },
-  ],
-  notice: ["13g beans w/ 200g water"],
-};
-
-const KurasuKyotoV60Iced: Recipe = {
-  blocks: [
-    {
-      id: "block-a",
-      step: "Bloom",
-      time: 30,
-      water: 40,
-      notice: "Gently stir with a spoon right after pouring.",
-    },
-    { id: "block-b", step: "2nd Pour", time: 30, water: 60 },
-    {
-      id: "block-c",
-      step: "3rd Pour",
-      time: 0,
-      water: 50,
-      notice:
-        "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
-    },
-  ],
-  notice: ["16g beans w/ 70g ice and 150g water (91℃)"],
-};
-
-const KurasuKyotoV60Iced125: Recipe = {
-  blocks: [
-    {
-      id: "block-a",
-      step: "Bloom",
-      time: 30,
-      water: 50,
-      notice: "Gently stir with a spoon right after pouring.",
-    },
-    { id: "block-b", step: "2nd Pour", time: 30, water: 75 },
-    {
-      id: "block-c",
-      step: "3rd Pour",
-      time: 0,
-      water: 65,
-      notice:
-        "Give it a light stir in the clockwise and counter-clockwise motion after pouring.",
-    },
-  ],
-  notice: [
-    'This recipe is base on "Kurasu Kyoto - V60 Iced" with 25% more water.',
-    "20g beans w/ 85g ice and 150g water (91℃)",
-  ],
-};
-
-const KurasuKyotoV60LightBasicRecipe: Recipe = {
-  blocks: [
-    {
-      id: "block-a",
-      step: "Bloom",
-      time: 40,
-      water: 40,
-      notice: "Gently stir with a spoon right after pouring.",
-    },
-    { id: "block-b", step: "2nd Pour", time: 30, water: 60 },
-    {
-      id: "block-c",
-      step: "3rd Pour",
-      time: 30,
-      water: 50,
-      notice: "Pour move gentaly compared to 2nd pour.",
-    },
-    {
-      id: "block-d",
-      step: "4th Pour",
-      time: 0,
-      water: 50,
-      notice: "Give it a final stir with a tea spoon after pouring.",
-    },
-  ],
-  notice: ["14g beans w/ 200g water (91℃)"],
-};
-
-export const prebuiltRecipes: { [key: string]: Recipe } = {
-  "James Hoffmann - A Better 1 Cup V60": JamesHoffmannV60,
-  "Kurasu Kyoto - V60": KurasuKyotoV60,
-  "Kurasu Kyoto - V60 Iced": KurasuKyotoV60Iced,
-  "Kurasu Kyoto - V60 Iced 125%": KurasuKyotoV60Iced125,
-  "Kurasu Kyoto - V60 Light Roast": KurasuKyotoV60LightBasicRecipe,
-};
+import type { Block, Recipe } from "./types";
 
 interface ExtractionBlocksProps {
   blocks: Block[];
   setBlocks: React.Dispatch<React.SetStateAction<Block[]>>;
+  prebuiltRecipes: { [key: string]: Recipe };
 }
 
 const ExtractionBlocks: React.FC<ExtractionBlocksProps> = ({
   blocks,
   setBlocks,
+  prebuiltRecipes,
 }) => {
   const [isMounted, setIsMounted] = useState(false);
   const [selectedRecipe, setSelectedRecipe] = useState<string>(
-    "James Hoffmann - A Better 1 Cup V60",
+    Object.keys(prebuiltRecipes)[0] || "Custom",
   );
 
   useEffect(() => {

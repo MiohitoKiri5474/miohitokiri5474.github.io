@@ -1,12 +1,5 @@
 import React from "react";
-
-interface Block {
-  id: string;
-  time: number | string;
-  water: number | string;
-  notice?: string;
-  step?: string;
-}
+import type { Block } from "./types";
 
 interface CurrentExtractionStepProps {
   block: Block;

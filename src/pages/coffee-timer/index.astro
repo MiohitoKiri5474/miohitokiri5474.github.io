@@ -4,20 +4,28 @@ import Body from "../../components/Body.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import CoffeeTimerContainer from "../../components/coffee-timer/CoffeeTimerContainer.tsx";
+import { getCollection } from "astro:content";
+
+const recipes = await getCollection("recipes");
+const prebuiltRecipes = Object.fromEntries(
+  recipes.map((r) => [r.data.title, r.data]),
+);
 ---
 
-
 <html lang="en">
-    <head>
-        <BaseHead
-            title="Coffee Timer"
-            description="A Timer for your coffee brewing process, helping you achieve the perfect cup every time."
-        />
-    </head>
-    <Body>
-        <Header />
-        <CoffeeTimerContainer client:only="react" />
-        <Footer />
-    </Body>
+  <head>
+    <BaseHead
+      title="Coffee Timer"
+      description="A Timer for your coffee brewing process, helping you achieve the perfect cup every time."
+    />
+  </head>
+  <Body>
+    <Header />
+    <CoffeeTimerContainer
+      client:only="react"
+      prebuiltRecipes={prebuiltRecipes}
+    />
+    <Footer />
+  </Body>
 </html>
 
