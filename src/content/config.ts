@@ -24,9 +24,27 @@ const usesCollection = defineCollection({
   }),
 });
 
+const recipes = defineCollection({
+  type: "data",
+  schema: z.object({
+    title: z.string(),
+    notice: z.array(z.string()).optional(),
+    blocks: z.array(
+      z.object({
+        id: z.string(),
+        step: z.string().optional(),
+        time: z.union([z.number(), z.string()]),
+        water: z.union([z.number(), z.string()]),
+        notice: z.string().optional(),
+      }),
+    ),
+  }),
+});
+
 export const collections = {
   game: blog,
   code: blog,
   uses: usesCollection,
   blog,
+  recipes,
 };

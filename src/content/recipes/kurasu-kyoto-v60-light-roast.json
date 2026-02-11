@@ -1,0 +1,28 @@
+{
+  "title": "Kurasu Kyoto - V60 Light Roast",
+  "notice": ["14g beans w/ 200g water (91℃)"],
+  "blocks": [
+    {
+      "id": "block-a",
+      "step": "Bloom",
+      "time": 40,
+      "water": 40,
+      "notice": "Gently stir with a spoon right after pouring."
+    },
+    { "id": "block-b", "step": "2nd Pour", "time": 30, "water": 60 },
+    {
+      "id": "block-c",
+      "step": "3rd Pour",
+      "time": 30,
+      "water": 50,
+      "notice": "Pour move gentaly compared to 2nd pour."
+    },
+    {
+      "id": "block-d",
+      "step": "4th Pour",
+      "time": 0,
+      "water": 50,
+      "notice": "Give it a final stir with a tea spoon after pouring."
+    }
+  ]
+}

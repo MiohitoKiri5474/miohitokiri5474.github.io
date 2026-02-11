@@ -1,0 +1,41 @@
+{
+  "title": "James Hoffmann - A Better 1 Cup V60",
+  "notice": ["15g beans w/ 250g water"],
+  "blocks": [
+    {
+      "id": "block-a",
+      "step": "Bloom",
+      "time": 45,
+      "water": 50,
+      "notice": "Gently swirl at 00:10."
+    },
+    {
+      "id": "block-b",
+      "step": "2nd Pour",
+      "time": 25,
+      "water": 50,
+      "notice": "Stable and average pouring water in the first 15s then rest."
+    },
+    {
+      "id": "block-d",
+      "step": "3rd Pour",
+      "time": 20,
+      "water": 50,
+      "notice": "Stable and average pouring water in the first 10s then rest."
+    },
+    {
+      "id": "block-f",
+      "step": "4nd Pour",
+      "time": 20,
+      "water": 50,
+      "notice": "Stable and average pouring water in the first 10s then rest."
+    },
+    {
+      "id": "block-h",
+      "step": "5th Pour",
+      "time": 0,
+      "water": 50,
+      "notice": "Stable pouring water in the first 10s then gentaly swirl"
+    }
+  ]
+}
