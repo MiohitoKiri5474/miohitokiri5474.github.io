@@ -6,6 +6,9 @@
 
 :root {
   --black: 15, 18, 25;
+  --gray: 96, 115, 159;
+  --gray-light: 229, 233, 240;
+  --accent: 136, 58, 234;
   --box-shadow:
     0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%),
     0 16px 32px rgba(var(--gray), 33%);
@@ -90,12 +93,6 @@ pre {
   margin-bottom: 1em;
 }
 
-blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0 0 0 20px;
-  margin: 0px;
-  font-size: 1.333em;
-}
 hr {
   border: none;
   border-top: 1px solid rgb(var(--gray-light));
@@ -139,10 +136,6 @@ blockquote {
   font-style: italic;
   font-size: 1em;
 }
-
-/* pre { */
-/*   @apply rounded-md pl-8; */
-/* } */
 
 .prose p {
   white-space: pre-wrap;
