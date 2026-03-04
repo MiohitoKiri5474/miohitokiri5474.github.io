@@ -92,7 +92,7 @@ const posts = (await getCollection("post"))
             }
 
             .bg-blur {
-                background: rgba(0, 0, 0, 0.5);
+                background: rgba (0, 0, 0, 0.5);
                 backdrop-filter: blur(5px);
                 -webkit-backdrop-filter: blur(5px);
                 padding: 2em;
@@ -145,7 +145,6 @@ const posts = (await getCollection("post"))
                     <img
                         class="absolute h-auto left-1/2 top-1/2 min-w-full min-h-full object-cover -translate-x-1/2 -translate-y-1/2"
                         src="/masthead.jpg"
-                        alt="Blog Posts Masthead Image"
                     />
                 </div>
                 <div
@@ -175,7 +174,7 @@ const posts = (await getCollection("post"))
                                                                 : "/code-default.jpg"
                                                         )
                                                 }
-                                                alt={post.data.title}
+                                                alt=""
                                             />
                                         </div>
                                         <div class="text-container">
