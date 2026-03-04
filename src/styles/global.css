@@ -227,8 +227,11 @@ code .line:last-child:empty::before {
 }
 
 blockquote {
-  border-left: 4px solid var(--accent);
-  padding: 0 0 0 20px;
+  border-left: 4px solid #86a697;
+  /* padding: 10px 0 0 20px; */
+  padding: 10px 20px 0px;
   margin: 0px;
-  font-size: 1.333em;
+  /* font-size: 1.333em; */
+  font-size: 1em;
+  color: #91989f;
 }
