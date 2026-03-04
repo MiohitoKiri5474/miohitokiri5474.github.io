@@ -161,6 +161,20 @@ code {
   counter-increment: step 0;
 }
 
+:not(pre) > code {
+  background-color: rgba(var(--gray-light), 0.7);
+  color: rgb(var(--accent));
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+:root.dark :not(pre) > code {
+  background-color: rgba(var(--gray), 0.25);
+  color: rgb(var(--accent));
+}
+
 code .line::before {
   content: counter(step);
   counter-increment: step;
