@@ -36,55 +36,43 @@ const { headings, title } = Astro.props;
 ---
 
 <script>
-    function setTocObserver() {
-        const tocLinks = document.querySelectorAll("[data-toc-link]");
-        const observerOptions = { threshold: 1, rootMargin: "-5% 0% -5% 0%" };
-        return new IntersectionObserver((entries) => {
-            const activeLinks = [];
-            var maxDepth = 2;
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    const currentHeading = entry.target;
-                    for (const link of tocLinks) {
-                        const linkDepth = (link as HTMLElement).dataset.depth;
-                        const link_arr = link.textContent.trim().split(" ");
-                        var link_title = link_arr[link_arr.length - 1];
-                        for (let idx = link_arr.length - 2; idx >= 0; idx--) {
-                            if (link_arr[idx])
-                                link_title = link_arr[idx] + ' ' + link_title;
-                            else
-                                break;
-                        }
-                        console.log ( currentHeading.textContent, link_title );
-                        const isHeadingAndTocLinkContentMatched =
-                            currentHeading.textContent ===
-                            link_title;
-                        activeLinks[linkDepth] = link;
-                        maxDepth = parseInt(linkDepth, 10);
-                        if (isHeadingAndTocLinkContentMatched) {
-                            break;
-                        }
-                    };
-                    tocLinks.forEach((link) => {
-                        link.classList.remove("toc-active-link");
-                        link.classList.add("toc-link");
-                    });
-                    for (let i = 2; i <= maxDepth; i++) {
-                        activeLinks[i].classList.add("toc-active-link");
-                        activeLinks[i].classList.remove("toc-link");
-                    }
-                }
-            });
-        }, observerOptions);
-    }
-
     function tocInit() {
-        const avaliableHeadings = document.querySelectorAll<HTMLHeadingElement>(
-            "h2, h3, h4, h5, h6",
+        const tocLinks = Array.from(
+            document.querySelectorAll<HTMLAnchorElement>("[data-toc-link]"),
         );
-        avaliableHeadings.forEach((heading) => {
-            setTocObserver().observe(heading);
-        });
+        if (tocLinks.length === 0) return;
+
+        // Derive headings directly from TOC link hrefs — scoped to article only,
+        // and IDs are guaranteed to match (no text-matching needed).
+        const headings = tocLinks
+            .map((link) => document.getElementById(link.getAttribute("href")!.slice(1)))
+            .filter((el): el is HTMLElement => el !== null);
+        if (headings.length === 0) return;
+
+        function setActive(index: number) {
+            tocLinks.forEach((link, i) => {
+                link.classList.toggle("toc-active-link", i === index);
+                link.classList.toggle("toc-link", i !== index);
+            });
+        }
+
+        // Initialize: first link active before observer fires
+        setActive(0);
+
+        const visible = new Set<HTMLElement>();
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) visible.add(entry.target as HTMLElement);
+                    else visible.delete(entry.target as HTMLElement);
+                });
+                const firstVisible = headings.find((h) => visible.has(h));
+                if (firstVisible) setActive(headings.indexOf(firstVisible));
+            },
+            { threshold: 1, rootMargin: "-5% 0% -5% 0%" },
+        );
+
+        headings.forEach((h) => observer.observe(h));
     }
 
     function manualActiveLinkInit() {
