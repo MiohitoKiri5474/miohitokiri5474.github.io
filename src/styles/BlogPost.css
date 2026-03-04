@@ -19,7 +19,8 @@ main {
 }
 .hero-image img {
   width: 90%;
-  max-height: calc(90% * 16 / 9);
+  /* max-width: min(100%, 720px); */
+  max-height: clac(90% * 16 / 9);
   object-fit: cover;
   display: block;
   margin: 0 auto;
@@ -33,6 +34,7 @@ main {
 .title {
   width: 100%;
   margin: 1em 0 0 0;
+  /* padding: 1em 0; */
   text-align: center;
   line-height: 1;
 }
@@ -57,10 +59,15 @@ main {
 @media (max-width: 500px) {
   .container {
     display: block;
+    /* max-width: 100%; */
   }
   .astro-code.github-dark {
     max-width: 300px;
     overflow-x: auto;
+
     margin: auto;
   }
+  /* .hero-image img { */
+  /*   display: none; */
+  /* } */
 }
