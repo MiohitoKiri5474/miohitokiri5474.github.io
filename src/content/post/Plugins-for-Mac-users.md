@@ -69,6 +69,9 @@ iStat Menus 也是我用非常久的插件之一，但有段時間因為 Menu Ba
 AeroSpace 是我用了一陣子的 window manager，可以自行設定很多快捷鍵來調整視窗
 不過這個東西比較 nerdy，嚴格來說有點偏離這篇文章的主題
 
+> 有另一個比較沒那麼 nerdy 的軟體叫 [Retangle](https://rectangleapp.com/)，不過我覺得他比較沒那麼好用
+> 之前下載來用過一陣子，但最後也是被我放置了，直到開始用 AeroSpace
+
 Window manager 算是一個我一直都很想嘗試但最後都不了了之的東西，之前還在用 Ubuntu Desktop 的時候不敢自己亂搞，用 ArchLinux 的時候則是想說這台也是借用一兩個月，不想花太多心力搞
 而換用 macOS 之後好像也沒有特別好用的 window manager
 直到遇上 AeroSpace，用一陣子之後愛不釋手，現在完全離不開沒有 AeroSpace 的狀況了，有時候為了玩遊戲關掉，回來後還會不習慣XD
@@ -91,3 +94,4 @@ Bartender 5 支援彈出框顯示收合的 icon，用得很舒服錢也付了，
 常用的應該就這些了，其他還有在用的東西如 Ghostty, happerspoon 我覺得太 nerdy 了，沒有特別的理由可能都用不到
 
 這篇文章就這樣，如果有什麼好用的小工具也歡迎留言討論（？
+
