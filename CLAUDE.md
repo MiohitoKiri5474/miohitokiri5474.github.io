@@ -14,39 +14,40 @@ npm run build      # Full build: astro check → astro build → pagefind index 
 npm run preview    # Preview the built site locally
 ```
 
-There are no test or lint commands configured.
+No test or lint commands configured.
 
 ## Architecture
 
 **Framework**: Astro 4 with React 18 for interactive islands. Tailwind CSS 3 for styling. TypeScript throughout.
 
-**Content Collections** (`src/content/config.ts`): Three collections sharing two schemas:
-- `post`, `code`, `game` — all use the `blog` schema (title, description, pubDate, updatedDate, heroImage, draft, tags). Content lives in `src/content/post/` as Markdown files.
-- `uses` — equipment/gear reviews with title, description, heroImage, draft
-- `recipes` — coffee brewing recipe data as JSON files with blocks (step, time, water) and notices
+**Content Collections** (`src/content/config.ts`): Schemas defined for `game`, `code`, `uses`, `blog`, `recipes` — but actual posts live in `src/content/post/` which has **no schema entry** in config. Pages call `getCollection("post")` directly (untyped). Only `src/content/uses/` and `src/content/recipes/` have matching config entries.
 
-**Routing**: File-based via `src/pages/`. Dynamic routes use `[...slug].astro` with `getStaticPaths()` pulling from content collections. Key routes: `/post/[slug]`, `/uses/[slug]`, `/coffee-timer`, `/bubbles`, `/search`, `/rss.xml`.
+- `src/content/post/` — all blog posts as Markdown (used by `getCollection("post")`)
+- `src/content/uses/` — equipment/gear reviews (`usesCollection` schema)
+- `src/content/recipes/` — coffee recipe JSON files with `blocks[]` (id, step, time, water) and `notices[]`
 
-**Layouts**: `BlogPost.astro` renders posts with a sticky sidebar TOC (auto-generated from headings, highlighted via IntersectionObserver). `Uses.astro` for equipment pages.
+**Routing**: File-based via `src/pages/`. Dynamic routes use `[...slug].astro` with `getStaticPaths()`. Key routes: `/post/`, `/post/[...slug]`, `/uses/`, `/uses/[...slug]`, `/coffee-timer`, `/bubbles`, `/search`, `/rss.xml`.
+
+**Layouts**: `BlogPost.astro` renders posts with sticky sidebar TOC (auto-generated from headings, highlighted via IntersectionObserver). `Uses.astro` for equipment pages. Per-layout CSS: `src/styles/BlogPost.css`, `src/styles/Uses.css`, `src/styles/bubbles.css` alongside `src/styles/global.css`.
 
 **React Islands**: Used only where client-side interactivity is required, hydrated with `client:only="react"`:
 - `HeaderHamburger.tsx` — mobile nav menu (Headless UI)
-- `ThemeToggleButtom.tsx` — dark/light toggle with localStorage
-- `src/components/coffee-timer/` — full timer app with dnd-kit sortable recipe blocks
+- `ThemeToggleButtom.tsx` — dark/light toggle with localStorage (filename intentionally misspelled)
+- `src/components/coffee-timer/` — timer app with dnd-kit sortable recipe blocks
 - `src/components/bubbles/` — floating message bubbles interface
 
-**Markdown Pipeline**: remark-math + rehype-katex for LaTeX math rendering. GFM format with breaks enabled. Pagefind for full-text search indexed at build time.
+**Markdown Pipeline**: remark-math + rehype-katex for LaTeX math rendering. GFM with `breaks: true`. Pagefind for full-text search indexed at build time (outputs to `dist/pagefind/`, then copied to `public/`).
 
-**Styling**: Tailwind with class-based dark mode. Global CSS in `src/styles/global.css` (Bear Blog heritage). Custom font: Atkinson (woff in `public/fonts/`).
+**Styling**: Tailwind with class-based dark mode (`dark:`). Body colors set in `Body.astro` (`bg-orange-50 dark:bg-zinc-900`). Custom font: Atkinson (woff in `public/fonts/`).
 
 ## Deployment
 
-Push to `main` triggers GitHub Actions (`.github/workflows/deploy.yml`) using `withastro/action@v2` → `actions/deploy-pages@v4`. The build step in CI handles pagefind indexing automatically via the official Astro action.
+Push to `main` triggers GitHub Actions (`.github/workflows/deploy.yml`) using `withastro/action@v2` → `actions/deploy-pages@v4`. The official Astro action handles pagefind indexing automatically.
 
 ## Key Conventions
 
 - Site constants (title, description) live in `src/consts.ts`
 - Blog post frontmatter requires `title` and `pubDate`; other fields optional
-- The component filename `ThemeToggleButtom.tsx` is intentionally misspelled (not a typo to fix)
 - Content is bilingual (English and Chinese)
-- Google Analytics runs via Partytown for off-main-thread execution
+- Google Analytics (ID: `G-5PX5VJYPVK`) runs via Partytown for off-main-thread execution; added to each page individually via `<GoogleAnalytics>` component
+- Default hero images: `/game-default.jpg` for posts tagged `"game"`, `/code-default.jpg` otherwise
