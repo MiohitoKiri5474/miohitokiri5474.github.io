@@ -62,3 +62,10 @@ heroImage: "/MBP14.jpeg"
 
 總之大概是這樣，說真的從沒想過有一天我會想回頭用 GUI IDE
 甚至花時間搭建出來的 minimal terminal，現在看起來也沒有太多的必要了
+
+## 補述 @ Jul 12 2026
+
+現在回想一下，過去還在大量寫 code 的時候大概一個月就會小修一下 NeoVim config
+像是稍微修一下某部份的操作，讓我在編輯時更流暢，或是修一下 formatter 的介入時機點，不會讓我在操作時都要等它操作
+不過現在我的 config 已經半年沒修改了，翻一下 config 這半年只有把 vim-tmux-navigator 拔掉、把 Copilot 拔掉又加回來、還有新增 Claude 的支援
+大概就這樣而已，而且每個改動或多或少都是跟 AI 相關，說來有點慚愧
