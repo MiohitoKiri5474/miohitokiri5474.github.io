@@ -4,6 +4,7 @@ import react from "@astrojs/react";
 import image from "@astrojs/image";
 import tailwind from "@astrojs/tailwind";
 import remarkMath from "remark-math";
+import remarkBreaks from "remark-breaks";
 import rehypeKatex from "rehype-katex";
 
 import partytown from "@astrojs/partytown";
@@ -38,12 +39,7 @@ export default defineConfig({
     partytown(),
   ],
   markdown: {
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkMath, remarkBreaks],
     rehypePlugins: [rehypeKatex],
-    extendDefaultPlugins: true,
-    format: "gfm",
-    remarkOptions: {
-      breaks: true
-    }
   }
 });
