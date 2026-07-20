@@ -11,7 +11,7 @@ import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://miohitokiri5474.github.io/",
+  site: "https://blog.miohitokiri5474.tw/",
   integrations: [
     sitemap({
       // Exclude non-content utility pages from the sitemap
@@ -24,8 +24,8 @@ export default defineConfig({
       serialize(item) {
         // Give the homepage and post listing higher priority
         if (
-          item.url === "https://miohitokiri5474.github.io/" ||
-          item.url === "https://miohitokiri5474.github.io/post/"
+          item.url === "https://blog.miohitokiri5474.tw/" ||
+          item.url === "https://blog.miohitokiri5474.tw/post/"
         ) {
           item.priority = 1.0;
           item.changefreq = "daily";
