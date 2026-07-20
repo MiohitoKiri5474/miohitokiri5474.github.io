@@ -9,7 +9,7 @@ heroImage: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRug7AdKg_PEZ9Q
 ## Before We Start
 
 前陣子用紅黑中速在台中諾亞西屯店拿了 MIT 資格，因為當時第四循環還沒結束，想說要組點有趣的套牌來玩玩，別只打紅黑，測一下有興趣且有強度但沒空真的拿出來打的牌。
-所以當時就決定要來改出一個我喜歡的格利極構築（詳細的牌組介紹可以看一下[這篇](https://miohitokiri5474.github.io/game/Grixis-Midrange-Testing/)），目前最喜歡的版本是 格利極約利昂中速 Grixis Yorion Midrange，也是這篇文章的主題。
+所以當時就決定要來改出一個我喜歡的格利極構築（詳細的牌組介紹可以看一下[這篇](/post/grixis-midrange-testing/)），目前最喜歡的版本是 格利極約利昂中速 Grixis Yorion Midrange，也是這篇文章的主題。
 
 雖然之前有講過，我覺得為了把部分的備牌放來正編而混藍掛 Yorion 當行侶打 80 張不是一個好主意，但在 MA 上測了一下，同時把實卡組出來自己搓一下牌，只要不卡手卡的太嚴重，基本上算是很舒服的套牌。
 

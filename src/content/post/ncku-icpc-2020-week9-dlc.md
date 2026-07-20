@@ -522,7 +522,7 @@ inline int sum ( int x, int y, int in ){
 這篇文章寫的也挺久的，主要是文中的內容大部分都不常用到，在寫的時候還跑去翻了一些文章以及教材
 
 正因如此，內容上可能有些錯誤
-如有發現錯誤，請聯絡 [筆者](https://miohitokiri5474.github.io/code/about/)
+如有發現錯誤，請聯絡 [筆者](/about/)
 
 另外，這篇文章中的 code 也有同步更新於筆者的 github，可以看[這邊](https://github.com/MiohitoKiri5474/CodesBackUp/tree/master/ncku-icpc/2020/week9/DLC)
 
@@ -533,14 +533,14 @@ Treap 寫起來太耗費時間，就先欠著吧（？
 
 至於資料結構的例題講解，這邊的 blog 有幾篇
 
-1. [[CF][920F] F. SUM AND REPLACE](https://miohitokiri5474.github.io/code/CF-920F/)
+1. [[CF][920F] F. SUM AND REPLACE](/post/cf-920f/)
    這邊挺久之前寫的，可能語句有些不順
-2. [[TOJ][391] E. 模數 CANDY](https://miohitokiri5474.github.io/code/TOJ-391/)
+2. [[TOJ][391] E. 模數 CANDY](/post/toj-391/)
    這篇也挺久的，是高中時打過的比賽
-3. [[TIOJ][1909] 勇者出征](https://miohitokiri5474.github.io/code/TIOJ-1909/)
+3. [[TIOJ][1909] 勇者出征](/post/tioj-1909/)
    高中時寫到的哏題，也是離散化套線段樹
    不過當時還有用噁心 define 的毒瘤習慣，code 看起來可能有些痛苦
-4. [[TOJ][365]G.大龍貓](https://miohitokiri5474.github.io/code/TOJ-365/)
+4. [[TOJ][365]G.大龍貓](/post/toj-365/)
    最後是在文中有用到的題目大龍貓，當初也有寫一份題解
    不過個人認為這邊的更好閱讀
 
